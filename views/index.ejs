@@ -1,0 +1,750 @@
+<!DOCTYPE html> 
+<html lang="pt-br"> 
+<head> 
+    <title>Estúdio Som do Mar</title> 
+    <meta charset="utf-8">
+    
+    <link href='http://fonts.googleapis.com/css?family=Vidaloka' rel='stylesheet' type='text/css'> 
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'> 
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" href="css/reset.css"> 
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/layout.css"> 
+    <link rel="stylesheet" href="css/skin.css">
+    <link rel="stylesheet" href="css/jquery.fancybox.css">  
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="css/html5audio.css">
+    <link rel="stylesheet" href="css/html5audio_animations.css">
+    <link rel="stylesheet" href="js/revolution/rs-plugin/css/style.css" />
+    <link rel="stylesheet" href="js/revolution/rs-plugin/css/settings.css" />
+        
+    <script type="text/javascript" src="js/jquery-1.7.1.js"></script> 
+    <script type="text/javascript" src="js/jquery-ui-1.8.23.custom.min.js"></script> 
+    <script type="text/javascript" src="js/jquery.easing.js"></script> 
+    <script type="text/javascript" src="js/superfish.js"></script> 
+    <script type="text/javascript" src="js/switcher.js"></script> 
+    <script type="text/javascript" src="js/sprites.js"></script> 
+    <script type="text/javascript" src="js/jquery.mousewheel.js"></script> 
+    <script type="text/javascript" src="js/jquery.animate-colors-min.js"></script> 
+    <script type="text/javascript" src="js/jquery.fancybox.js"></script> 
+    <script type="text/javascript" src="js/FancyBox.js"></script>  
+    <script type="text/javascript" src="js/jquery.mCustomScrollbar.min.js"></script>
+    <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>  
+    <script type="text/javascript" src="js/forms.js"></script> 
+    <script type="text/javascript" src="js/googleMap.js"></script>
+    <script type="text/javascript" src="js/html5audio.js"></script>
+    <script type="text/javascript" src="js/site_scripts.js"></script>
+
+    <!-- jQuery KenBurn Slider  -->	
+	<script type="text/javascript" src="js/revolution/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>			
+    <script type="text/javascript" src="js/revolution/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>	
+    
+    <!--[if lt IE 9]> 
+        <script type="text/javascript" src="js/html5.js">
+        </script> 
+        <link rel="stylesheet" href="css/ie.css" type="text/css" media="all"> 
+    <![endif]--> 
+    <!--[if lt IE 8]> 
+        <div style='clear:both;text-align:center;position:relative;'> 
+            <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+                <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/>
+            </a> 
+        </div> 
+    <![endif]--> 
+    <style type="text/css">
+<!--
+.style1 {color: #0099CC}
+-->
+    </style>
+</head> 
+<body> 
+    <div class="extra"> 
+      <div class="page_spinner"></div>  
+        <div class="up-line"></div> 
+        <header> 
+            <div class="main"> 
+                <div id="logo">
+                    <img class="imagem" src="img/nova_logo.png" width="190" height="190" border="0" alt="Estúdio Som do Mar" />
+                </div>
+
+                <nav class="menu"> 
+                    <ul id="menu"> 
+                        <li><a href="#!/home"><span class="mText">home</span></a></li> 
+                        <li class="with_ul">
+                            <a href="#!/estudio"><span class="mText">estúdio</span></a> 
+                            <ul class="submenu_1"> 
+                                <li><a href="#!/portfolio">portfólio</a></li> 
+                                <li><a href="#!/fotos">fotos</a></li> 
+                                <li><a href="#!/videos">vídeos</a></li> 
+                            </ul>
+                        </li> 
+                        <li><a href="#!/artistas"><span class="mText">artistas</span></a></li>
+                        <li><a href="#!/contato"><span class="mText">contato</span></a></li> 
+                    </ul> 
+                </nav> 
+                <div id="player">
+                    <!-- Programa de Rádio -->
+                    <div class="song radioSource" 
+                        data-h5a-song-artist="Rádio Som do Mar" 
+                        data-h5a-song-name="<%= viewModel.radio.descricao %>"
+                        data-h5a-song-url="musicas/<%= viewModel.radio.arquivoMusica %>"
+                        data-h5a-cover-url="img/cd/flavinho_sousa.jpg">
+                    </div>
+                </div>
+            </div> 
+        </header>  
+        
+        <div class="main">  
+            <div class="bgSelector"></div> 
+            <article id="content"> 
+                <ul> 
+                    <li id="home"> 
+                        <article class="col1">
+                            
+                            <hgroup>
+                                <h1 class="style1" title="BEM-VINDO!"><%= viewModel.paginas.home.titulo %></h1>
+								<h2><%= viewModel.paginas.home.subtitulo %></h2>
+                            </hgroup>
+
+                            <ul id="carousel" class="jcarousel-skin-tango"> 
+
+                                <% for (var i = 0; i < viewModel.fotos.home.length; i++) { %>
+                                    <li>
+                                        <a rel="home-gallery" href="img/foto/home/<%= viewModel.fotos.home[i].imagemAmpliada %>" title="<%= viewModel.fotos.home[i].titulo %>">
+                                            <figure>
+                                                <img class="gall-pic" src="img/foto/home/<%= viewModel.fotos.home[i].imagemPequena %>" alt="<%= viewModel.fotos.home[i].titulo %>" />
+                                                <div class="zoom">
+                                                    <img src="img/magnify.png" alt="" />
+                                                </div>
+                                            </figure>
+                                        </a>                                
+                                    </li>
+                                <% } %>
+
+                            </ul> 
+                        </article> 
+                    </li> 
+
+                    <!-- SOBRE -->
+
+                    <li id="estudio" class="contentPad"> 
+                        <div class="wrapper"> 
+                            <article class="col2 cont-line"> 
+                                <h2><%= viewModel.paginas.estudio.titulo %></h2>
+                                <img src="img/foto/tecnica_estudio.jpg" alt="" class="imgIndent"> 
+
+                                <% for (var i = 0; i < viewModel.paginas.estudio.texto.paragrafos.length; i++) { %>
+
+                                    <p><%= viewModel.paginas.estudio.texto.paragrafos[i].descricao %></p>
+
+                                <% } %>
+
+                                <a href="#!/servicos" class="ex-8">Mais sobre nós</a>                            
+                            </article> 
+
+                            <article class="col3 margLeft"> 
+                                <h2>Som do Mar</h2> 
+                                <ul class="col-icons"> 
+                                    <li class="icons bord"> 
+                                        <img src="img/icons/microphone.png" alt="Serviços" class="fleft"> 
+                                        <div>
+                                            <p class="text-icons1">Serviços</p> 
+                                            <p class="padBot">Uma gama de serviços em áudio</p> 
+                                            <a href="#!/servicos" class="read-more-butt">Saiba Mais</a>                                        
+                                        </div> 
+                                    </li> 
+                                    <li class="icons bord"> 
+                                        <img src="img/icons/guitar.png" alt="Equipamentos" class="fleft"> 
+                                        <div>
+                                            <p class="text-icons1">Equipamentos</p> 
+                                            <p class="padBot">Para proporcionar o melhor som, equipamentos e instrumentos de qualidade.</p> 
+                                            <a href="#!/servicos" class="read-more-butt">Saiba Mais</a>                                        
+                                        </div> 
+                                    </li> 
+                                    <li class="icons"> 
+                                        <img src="img/icons/partners.png" alt="Parcerias" class="fleft parcerias"> 
+                                        <div>
+                                            <p class="text-icons1">Parcerias</p> 
+                                            <p class="padBot">Temos a parceria certa para facilitar e assegurar a qualidade do seu projeto.</p> 
+                                            <a href="#!/servicos" class="read-more-butt">Saiba Mais</a>                                        
+                                        </div> 
+                                    </li> 
+                                </ul> 
+                            </article> 
+                        </div> 
+                    </li> 
+
+                    <li id="portfolio" class="contentPad"> 
+                        <div class="wrapper"> 
+                            <article class="col9"> 
+
+                                <h2>portfólio</h2>
+
+                                <nav class="sub_menu">
+                                    <ul>
+                                        <li><a class="activeMenu" href="slide_ultimos_lancamentos" data-active-menu-left-position="">últimos lançamentos</a></li>
+                                        <li><a href="slide_outros_trabalhos" data-active-menu-left-position="">outros trabalhos</a></li>
+                                        <li><a href="slide_jingles" data-active-menu-left-position="">jingles</a></li>                                        
+                                        <li><a href="slide_pessoal" data-active-menu-left-position="">pessoal</a></li>
+                                    </ul>
+                                </nav>
+
+                                <section class="sub_menu_content">
+                                    <div class="slider">
+                                        <article id="slide_ultimos_lancamentos" class="slide" data-slide-left-position="0">
+                                            <div class="scrollable">
+                                                <ul class="mainList inline"> 
+
+                                                    <% for (var i = 0; i < viewModel.portfolio.lancamentos.length; i++) { %>
+
+                                                        <li class="song marginBottomCD"
+                                                            data-h5a-song-artist="<%= viewModel.portfolio.lancamentos[i].artista %>"
+                                                            data-h5a-song-name="<%= viewModel.portfolio.lancamentos[i].nome %>"
+                                                            data-h5a-song-url="musicas/<%= viewModel.portfolio.lancamentos[i].arquivoMusica %>"
+                                                            data-h5a-cover-url="img/cd/<%= viewModel.portfolio.lancamentos[i].arquivoCapaAlbum %>">
+                                                            <figure class="play" >
+                                                                <img src="img/play.png" alt="" />                                                        
+                                                            </figure>
+                                                            <figure class="pause" >
+                                                                <img src="img/pause.png" alt="" />                                                        
+                                                            </figure>
+                                                            <img src="img/cd/<%= viewModel.portfolio.lancamentos[i].arquivoCapaAlbum %>" alt="" class="imagemCD" />
+                                                        </li>
+
+                                                    <% } %>
+                                                    
+                                                </ul>
+                                            </div>
+                                        </article>
+                                        <article id="slide_outros_trabalhos" class="slide" data-slide-left-position="-860">
+                                            <div class="scrollable">
+                                                <ul class="mainList listHoverFX simpleSongs"> 
+                                                    <% for (var i = 0; i < viewModel.portfolio.outros.length; i++) { %>
+
+                                                        <li class="song"
+                                                            data-h5a-song-artist="<%= viewModel.portfolio.outros[i].artista %>"
+                                                            data-h5a-song-name="<%= viewModel.portfolio.outros[i].nome %>"
+                                                            data-h5a-song-url="musicas/<%= viewModel.portfolio.outros[i].arquivoMusica %>">
+                                                            <div class="controls">
+                                                                <img src="img/play.png" alt="" class="play" />
+                                                                <img src="img/pause.png" alt="" class="pause" />                                                        </div>
+                                                            <p><%= viewModel.portfolio.outros[i].artista %> - <%= viewModel.portfolio.outros[i].nome %></p>
+                                                        </li>
+
+                                                    <% } %>
+                                                </ul>
+                                            </div>
+                                        </article>
+                                        <article id="slide_jingles" class="slide" data-slide-left-position="-1720">
+                                            <div class="col5 padRight cont-line descricao">
+
+                                                <% for (var i = 0; i < viewModel.paginas.portfolioJingles.texto.paragrafos.length; i++) { %>
+
+                                                    <p><%= viewModel.paginas.portfolioJingles.texto.paragrafos[i].descricao %></p>
+
+                                                <% } %>
+                                                
+                                            </div>
+
+                                            <div class="col6A margLeft scrollable">
+                                                <ul class="mainList listHoverFX simpleSongs">
+                                                    <% for (var i = 0; i < viewModel.portfolio.jingles.length; i++) { %>
+
+                                                        <li class="song"
+                                                            data-h5a-song-artist="<%= viewModel.portfolio.jingles[i].artista %>"
+                                                            data-h5a-song-name="<%= viewModel.portfolio.jingles[i].nome %>"
+                                                            data-h5a-song-url="musicas/<%= viewModel.portfolio.jingles[i].arquivoMusica %>">
+                                                            <div class="controls">
+                                                                <img src="img/play.png" alt="" class="play" />
+                                                                <img src="img/pause.png" alt="" class="pause" />                                                        </div>
+                                                            <p><%= viewModel.portfolio.jingles[i].artista %> - <%= viewModel.portfolio.jingles[i].nome %></p>
+                                                        </li>
+
+                                                    <% } %>
+
+                                                </ul>
+                                            </div>
+                                        </article>
+                                        <article id="slide_pessoal" class="slide" data-slide-left-position="-2580">
+                                            <div class="col5 padRight cont-line descricao">
+                                                <% for (var i = 0; i < viewModel.paginas.portfolioPessoal.texto.paragrafos.length; i++) { %>
+
+                                                    <p><%= viewModel.paginas.portfolioPessoal.texto.paragrafos[i].descricao %></p>
+
+                                                <% } %>
+                                            </div>
+
+                                            <div class="col6A margLeft scrollable">
+                                                <ul class="mainList inline">
+
+                                                    <% for (var i = 0; i < viewModel.portfolio.pessoal.length; i++) { %>
+
+                                                        <li class="song marginBottomCD"
+                                                            data-h5a-song-artist="<%= viewModel.portfolio.pessoal[i].artista %>"
+                                                            data-h5a-song-name="<%= viewModel.portfolio.pessoal[i].nome %>"
+                                                            data-h5a-song-url="musicas/<%= viewModel.portfolio.pessoal[i].arquivoMusica %>"
+                                                            data-h5a-cover-url="img/cd/<%= viewModel.portfolio.pessoal[i].arquivoCapaAlbum %>">
+                                                            <figure class="play" >
+                                                                <img src="img/play.png" alt="" />                                                        
+                                                            </figure>
+                                                            <figure class="pause" >
+                                                                <img src="img/pause.png" alt="" />                                                        
+                                                            </figure>
+                                                            <img src="img/cd/<%= viewModel.portfolio.pessoal[i].arquivoCapaAlbum %>" alt="" class="imagemCD" />
+                                                        </li>
+
+                                                    <% } %>
+
+                                                </ul>
+                                            </div>
+                                        </article>                                        
+                                    </div>
+                                </section>                                
+                            </article> 
+                        </div> 
+                    </li> 
+
+                    <li id="videos" class="contentPad"> 
+                        <div class="wrapper"> 
+                            <article class="col4"> 
+                                <h2>vídeos</h2>
+                                <ul id="carousel3" class="jcarousel-skin-tango2"> 
+
+                                    <%
+                                    
+                                    var quantidadeDeVideosPorColuna = 2
+                                        quantidadeDeLI = 0;
+
+                                    if (viewModel.videos.length <= quantidadeDeVideosPorColuna) {
+                                        quantidadeDeLI = 1;
+                                    } else {
+                                        quantidadeDeLI = Math.ceil(viewModel.videos.length / quantidadeDeVideosPorColuna);
+                                    }
+
+                                    for (var liIndex = 0; liIndex < quantidadeDeLI; liIndex++) {
+
+                                    %>
+
+                                    <li>
+                                      
+                                        <%
+                                    
+                                        var quantidadeDeDIV = 0,
+                                            ehUltimaColuna = (liIndex + 1) === quantidadeDeLI;
+
+                                        if (ehUltimaColuna) {
+                                            quantidadeDeDIV = viewModel.videos.length;
+                                        } else {
+                                            quantidadeDeDIV = quantidadeDeVideosPorColuna * (liIndex + 1);
+                                        }
+
+                                        for (var divIndex = liIndex * quantidadeDeVideosPorColuna; divIndex < quantidadeDeDIV; divIndex++) {
+
+                                        %>
+
+                                        <div class="videoHold">
+                                            <iframe width="277" height="157" src="http:<%= viewModel.videos[divIndex].url %>?rel=0" frameborder="0" allowfullscreen></iframe>
+                                        </div> 
+                                        
+                                        <% } %>
+
+                                    </li> 
+
+                                    <% } %>
+                                </ul>
+                            </article>
+                        </div> 
+                    </li> 
+
+                    <!-- FOTOS -->
+
+                    <li id="fotos" class="contentPad"> 
+                        <div class="wrapper"> 
+                            <article class="col9">
+                                <h2>fotos</h2>
+
+                                <nav class="sub_menu">
+                                    <ul>
+                                        <li><a class="activeMenu" href="slide_fotos_estudio" data-active-menu-left-position="">estúdio</a></li>
+                                        <li><a href="slide_fotos_musicos" data-active-menu-left-position="">músicos</a></li>
+                                        <li><a href="slide_fotos_participacoes" data-active-menu-left-position="">participações</a></li>
+                                    </ul>
+                                </nav>
+                                
+                                <section class="sub_menu_content picList">
+                                    <div class="slider">
+                                        <article id="slide_fotos_estudio" class="slide scrollable" data-slide-left-position="0">
+                                            <% for (var i = 0; i < viewModel.fotos.estudio.length; i++) { %>
+                                                <a href="img/foto/estudio/<%= viewModel.fotos.estudio[i].imagemAmpliada %>" title="<%= viewModel.fotos.estudio[i].titulo %>">
+                                                    <figure>
+                                                        <img src="img/foto/estudio/<%= viewModel.fotos.estudio[i].imagemPequena %>" alt="" />
+                                                    </figure>
+                                                    <figure class="picZoom">
+                                                        <img src="img/magnify.png" alt="" />                                                
+                                                    </figure>
+                                                </a>
+                                            <% } %>
+                                        </article>
+                                        <article id="slide_fotos_musicos" class="slide scrollable" data-slide-left-position="-860">
+                                            <% for (var i = 0; i < viewModel.fotos.musicos.length; i++) { %>
+                                                <a href="img/foto/musico/<%= viewModel.fotos.musicos[i].imagemAmpliada %>" title="<%= viewModel.fotos.musicos[i].titulo %>">
+                                                    <figure>
+                                                        <img src="img/foto/musico/<%= viewModel.fotos.musicos[i].imagemPequena %>" alt="" />
+                                                    </figure>
+                                                    <figure class="picZoom">
+                                                        <img src="img/magnify.png" alt="" />                                                
+                                                    </figure>
+                                                </a>
+                                            <% } %>
+                                        </article>
+                                        <article id="slide_fotos_participacoes" class="slide scrollable" data-slide-left-position="-1720">
+                                            <% for (var i = 0; i < viewModel.fotos.participacoes.length; i++) { %>
+                                                <a href="img/foto/participacao/<%= viewModel.fotos.participacoes[i].imagemAmpliada %>" title="<%= viewModel.fotos.participacoes[i].titulo %>">
+                                                    <figure>
+                                                        <img src="img/foto/participacao/<%= viewModel.fotos.participacoes[i].imagemPequena %>" alt="" />
+                                                    </figure>
+                                                    <figure class="picZoom">
+                                                        <img src="img/magnify.png" alt="" />                                                
+                                                    </figure>
+                                                </a>
+                                            <% } %>
+                                        </article>
+                                    </div>
+                                </section>                                
+                            </article>                            
+                        </div> 
+                    </li> 
+
+                    <!-- ARTISTAS -->
+
+                    <li id="artistas" class="contentPad"> 
+                        <div class="wrapper"> 
+                            <article class="col9">
+                                <h2>artistas</h2>
+
+                                <div class="scrollable">
+
+                                    <% for (var i = 0; i < viewModel.artistas.length; i++) { %>
+
+                                        <% if (typeof viewModel.artistas[i].imagens.perfil != 'undefined' && typeof viewModel.artistas[i].musicas != 'undefined') { %> 
+
+                                            <a href="/artista/<%= viewModel.artistas[i].id %>" target="_blank">
+                                                <figure>
+                                                    <img src="img/foto/perfil/<%= viewModel.artistas[i].imagens.perfil %>" alt="" />
+                                                    <figcaption>
+                                                        <span><%= viewModel.artistas[i].nome %></span>                                            
+                                                    </figcaption>
+                                                </figure>
+                                            </a>
+
+                                        <% } %>
+                                    
+                                    <% } %>                          
+                                </div>
+                            </article>                            
+                        </div> 
+                    </li> 
+                    <li id="contato" class="contentPad"> 
+                        <div class="wrapper">                             
+                            
+                            <article class="colContacts margRight cont-line"> 
+                                <h2>contato</h2> 
+                                
+                                <div class="contacts"> 
+                                    <p class="contactText_1 margBot">Fortaleza - CE. Brasil</p> 
+                                    <p class="contact-info"> 
+                                        <strong>
+                                            <% for (var i = 0; i < viewModel.perfil.telefones.length; i++) { %>
+                                                <span class="phone contactText_2"><%= viewModel.perfil.telefones[i].tipo %>:</span>
+                                                <span class="contactText_2"><%= viewModel.perfil.telefones[i].numero %></span>
+                                                <br/> 
+                                            <% } %>
+                                        </strong>
+                                        <br/> 
+                                        <span class="mail contactText_2">E-mail: </span>
+                                        <a href="mailto:<%= viewModel.perfil.email %>" class="contactText_3"><%= viewModel.perfil.email %></a>
+                                    </p> 
+                                    <div class="social">
+                                        <% for (var i = 0; i < viewModel.perfil.redesSociais.length; i++) { %>
+                                            <a href="<%= viewModel.perfil.redesSociais[i].link %>" target="_blank">
+                                                <img src="img/icons/social/<%= viewModel.perfil.redesSociais[i].tipo %>-32.png" alt=""/>
+                                            </a>
+                                        <% } %>
+                                    </div>
+                                </div> 
+                            </article> 
+                            <article class="colMessages"> 
+                                <h2>fale conosco</h2>      
+
+                                <form id="formContato" action="/contato/enviarEmail" method="post" autocomplete="off">
+
+                                    <div class="field name">
+                                        <input type="text" class="input inputBg" name="nome" placeholder="Nome" required />
+                                    </div>
+
+                                    <div class="field name">
+                                        <input type="email" class="input inputBg" name="email" placeholder="E-mail" required />
+                                    </div>
+
+                                    <div class="field message">
+                                        <textarea rows="1" cols="2" class="inputBg" name="mensagem" placeholder="Mensagem" required></textarea>
+                                    </div>
+
+                                    <div class="clear"></div> 
+
+                                    <div class="buttons">
+                                        <input type="reset" value="limpar">
+                                        <input type="submit" value="enviar">
+                                    </div>
+
+                                    <div class="alert">
+                                        <div class="carregando">
+                                            <p>Enviando...</p>
+                                        </div>
+                                        <div class="erro">
+                                            <p class="title">Ops! Estamos com problemas.</p>
+                                            <p>Tente novamente mais tarde</p>
+                                            <div class="closeButton">
+                                                <img src="/img/close.png" alt="fechar">
+                                            </div>
+                                        </div>
+                                        <div class="success">
+                                            <p class="title">Mensagem enviada!</p>
+                                            <p>Breve entraremos em contato</p>
+                                            <div class="closeButton">
+                                                <img src="/img/close.png" alt="fechar">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </article> 
+                        </div> 
+                    </li> 
+                    <li id="page_privacy" class="contentPad"> 
+                        <div class="wrapper"> 
+                            <article class="col9"> 
+                                <h2>Privacy policy</h2> 
+                                
+                                <p class="margBot2">
+                                    <span class="color">No Som do Mar você encontrará os serviços ideais que trazem a melhor qualidade sonora aliada à experiência de um produtor renomado no cenário musical.</span>
+                                    <br/>
+                                    No Som do Mar você encontrará os serviços ideais que trazem a melhor qualidade sonora aliada à experiência de um produtor renomado no cenário musical.                                </p> 
+                                <p class="margBot3">
+                                    <span class="color">Maecenas tristique orci ac sem. Duis ultricies pharetra magna.</span>
+                                    <br/>
+                                    Donec accumsan malesuada orci. Donec sit amet eros. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nulla dui. Fusce feugiat malesuada odio. Morbi nunc odio, gravida at, cursus nec, luctus a, lorem. Maecenas tristique orci ac sem.                                </p> 
+                                <p>
+                                    <a href="#!">privacy@demolink.org</a>                                </p> 
+                            </article> 
+                        </div> 
+                    </li> 
+                    <li id="servicos" class="contentPad"> 
+                        <div class="wrapper">
+                            <article class="col9"> 
+                                <h2>Estúdio Som do Mar</h2> 
+                                
+                                <nav class="sub_menu">
+                                    <ul>
+                                        <li><a class="activeMenu" href="slide_servicos" data-active-menu-left-position="">serviços</a></li>
+                                        <li><a href="slide_equipamentos" data-active-menu-left-position="">equipamentos</a></li>
+                                        <li><a href="slide_parcerias" data-active-menu-left-position="">parcerias</a></li>
+                                    </ul>
+                                </nav>
+
+                                <section class="sub_menu_content">
+                                    <div class="slider">
+                                        <article id="slide_servicos" class="slide" data-slide-left-position="0">
+                                            <div class="scrollable">
+                                                <ul class="mainList listHoverFX">
+                                                    <% for (var i = 0; i < viewModel.servicos.length; i++) { %>
+
+                                                        <li>
+                                                            <img src="img/icons/guitar-pick.png" alt="">
+                                                            <p><%= viewModel.servicos[i].descricao %></p>
+                                                        </li>
+
+                                                    <% } %>
+                                                </ul>
+                                            </div>
+                                        </article>
+                                        <article id="slide_equipamentos" class="slide" data-slide-left-position="-860">
+                                            <div class="scrollable">
+                                                <ul class="mainList listHoverFX">
+                                                    <% for (var i = 0; i < viewModel.equipamentos.length; i++) { %>
+
+                                                        <li>
+                                                            <img src="img/icons/guitar-pick.png" alt="">
+                                                            <p><%= viewModel.equipamentos[i].descricao %></p>
+                                                        </li>
+
+                                                    <% } %>
+                                                </ul>
+                                            </div>
+                                        </article>
+                                        <article id="slide_parcerias" class="slide" data-slide-left-position="-1720">
+                                            <section class="threeDContainer">
+                                                <div class="card">
+                                                    <div class="face front">
+                                                        <h3>Fotografia</h3>
+                                                    </div>
+
+                                                    <div class="face back">
+                                                        <ul>
+                                                            <li>
+                                                                <img src="img/icons/camera.png" alt=""/>
+                                                                <p>Encarte de CD</p></li>
+                                                            <li>
+                                                                <img src="img/icons/camera.png" alt=""/>
+                                                                <p>Shows de Lançamento</p>
+                                                            </li>
+                                                            <li>
+                                                                <img src="img/icons/camera.png" alt=""/>
+                                                                <p>Making Of da gravação</p>
+                                                            </li>
+                                                        </ul>
+                                                    
+
+                                                        <footer>
+                                                            <h4>Contatos</h4>
+                                                            <div class="content">
+                                                                <p><a href="mailto:milemar@yahoo.com.br">milemar@yahoo.com.br</a></p>
+                                                                <p><a href="http://www.milenamarquesfotografia.com.br/">milenamarquesfotografia.com.br</a></p>
+                                                            </div>
+                                                        </footer>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                            <section class="threeDContainer">
+                                                <div class="card">
+                                                    <div class="face front">
+                                                        <h3>Fonoaudiologia</h3>
+                                                    </div>
+
+                                                    <div class="face back">
+                                                        <ul>
+                                                            <li>
+                                                                <img src="img/icons/mic.png" alt=""/>
+                                                                <p>Preparação Vocal</p>
+                                                            </li>
+                                                            <li>
+                                                                <img src="img/icons/mic.png" alt=""/>
+                                                                <p>Aulas de Canto</p>
+                                                            </li>
+                                                        </ul>
+
+                                                        <footer>
+                                                            <h4>Contatos</h4>
+                                                            <div class="content">
+                                                                <p><a href="http://espacovozeexpressao.blogspot.com/">espacovozeexpressao.blogspot.com</a></p>
+                                                                <p><a href="http://www.facebook.com/pages/Espa%C3%A7o-Voz-e-Express%C3%A3o/161313133977545">Facebook de Priscila Ribeiro</a></p>
+                                                            </div>
+                                                        </footer>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                            <section class="threeDContainer">
+                                                <div class="card">
+                                                    <div class="face front">
+                                                        <h3>Loja</h3>
+                                                    </div>
+
+                                                    <div class="face back">
+                                                        <ul>
+                                                            <li>
+                                                                <img src="img/icons/cart.png" alt=""/>
+                                                                <p>Instrumentos Musicais</p>
+                                                            </li>
+                                                            <li>
+                                                                <img src="img/icons/cart.png" alt=""/>
+                                                                <p>Equipamentos</p>
+                                                            </li>
+                                                        </ul>
+
+                                                        <footer>
+                                                            <h4>Contatos</h4>
+                                                            <div class="content">
+                                                                <p><a href="http://www.interartemusical.com.br/">interartemusical.com.br</a></p>
+                                                            </div>
+                                                        </footer>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                            <section class="threeDContainer">
+                                                <div class="card">
+                                                    <div class="face front">
+                                                        <h3>Website</h3>
+                                                    </div>
+
+                                                    <div class="face back">
+                                                        <ul>
+                                                            <li>
+                                                                <img src="img/icons/chrome.png" alt=""/>
+                                                                <p>Site personalizado</p></li>
+                                                            <li>
+                                                                <img src="img/icons/chrome.png" alt=""/>
+                                                                <p>Integração com redes sociais</p>
+                                                            </li>
+                                                        </ul>
+
+                                                        <footer>
+                                                            <h4>Contatos</h4>
+                                                            <div class="content">
+                                                                <p><a href="mailto:danilobjr@gmail.com">danilobjr@gmail.com</a></p>
+                                                            </div>
+                                                        </footer>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </article>
+                                    </div>
+                                </section>
+                            </article> 
+                        </div> 
+                    </li> 
+              </ul> 
+            </article>  
+        </div> 
+         
+        <footer> 
+            <div class="main"> 
+                <div class="privacy">
+                    <span class="color">Estúdio Som do Mar</span> &copy; <span class="anoAtual"></span> | 
+                    <% for (var i = 0; i < viewModel.perfil.redesSociais.length; i++) { %>
+                        <a href="<%= viewModel.perfil.redesSociais[i].link %>" target="_blank"><img src="/img/icons/social/<%= viewModel.perfil.redesSociais[i].tipo %>.png" alt="<%= viewModel.perfil.redesSociais[i].tipo %>" /></a>
+                    <% } %>
+                    
+                    <div class="design">
+                        <div class="designerBox">
+                            <span class="color designerContact">Entre em contato</span>
+                            <span><a href="mailto:danilobje@gmail.com" target="_blank">danilobjr@gmail.com</a></span>
+                            <div class="social">
+                                <a href="http://twitter.com/danilojrr" target="_blank"><img src="img/icons/twitter.png" alt="Twitter" /></a>
+                                <a href="http://facebook.com/danilo.juniorr" target="_blank"><img src="img/icons/facebook.png" alt="Facebook" /></a>
+                                <a href="http://youtube.com/danilobjrr" target="_blank"><img src="img/icons/youtube.png" alt="YouTube" /></a>
+                            </div>
+                            <div class="arrowDown">
+                                <div class="arrowDownBorder"></div>
+                            </div>
+                        </div>
+                        <span>design by <span class="color">Danilo Jr.</span></span>
+                    </div>
+                </div> 
+            </div>  
+        </footer> 
+         
+        <div class="glow"></div> 
+    </div> 
+<script>
+    $(window).load(function () {
+        $('.page_spinner').delay(250).fadeOut(800);
+        $('body').css({ overflow: 'visible' });
+    });
+</script>
+
+<script type="text/javascript" src="js/anoAtual.js"></script>
+<script src="js/app/formContato.js"></script>
+
+</body> 
+</html>

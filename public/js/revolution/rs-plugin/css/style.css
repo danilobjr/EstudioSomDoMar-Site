@@ -1,0 +1,354 @@
+/*----------------------------------------------------------------------------- 
+
+KENBURNER RESPONSIVE BASIC STYLES OF HTML DOCUMENT
+
+Screen Stylesheet 
+
+version:   	1.0 
+date:      	07/27/11 
+author:		themepunch
+email:     	support@themepunch.com 
+website:   	http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+
+
+/**********************
+	-	RESET	-
+************************/
+/*
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td { 
+    margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; 
+}
+    */
+
+/***********************
+	-	BASICS 	-
+***********************/
+/*
+html {
+	overflow-x:hidden;	
+	padding: 0 !important;
+	background-image:url(../images/tiles/bgtile.jpg);	
+	margin:0px !important;
+}
+
+
+ol, ul {  list-style: none; }
+
+a{	text-decoration:none;}
+*/
+
+
+/*********************************************************************************************
+	-	SET THE SCREEN SIZES FOR THE BANNER IF YOU WISH TO MAKE THE BANNER RESOPONSIVE 	-	
+**********************************************************************************************/
+  
+/*	-	THE BANNER CONTAINER (Padding, Shadow, Border etc. )	-	*/
+
+.bannercontainer {	
+	padding:5px;		
+	background-color:#fff;
+	width:890px;	
+	position:relative;
+	position:relative;	
+	margin-left:auto;
+	margin-right:auto;	
+	
+}
+ 
+.banner{		
+	width:890px;
+	height:490px;
+	position:relative;
+	overflow:hidden;			
+}
+   
+   
+.bannercontainer-simple {	
+	padding:5px;		
+	background-color:#fff;
+	width:890px;	
+	position:relative;
+	position:relative;	
+	margin-left:auto;
+	margin-right:auto;	
+	
+}
+ 
+.banner-simple{		
+	width:890px;
+	height:490px;
+	position:relative;
+	overflow:hidden;			
+}
+
+ .fullwidthbanner-container{
+	width:100% !important;		
+	position:relative;
+	padding:0;		
+	max-height:450px !important;
+	overflow:hidden;
+} 
+
+.fullwidthbanner-container .fullwidthabnner	{
+	width:100% !important;
+	max-height:450px !important;
+	position:relative;	
+}   
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {		
+    .banner, .bannercontainer {	
+        width:750px; height:412px;
+    }
+}
+  
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .banner, .bannercontainer {	
+        width:470px; height:258px;
+    }	   
+}
+   
+@media only screen and (min-width: 0px) and (max-width: 479px) {
+    .banner, .bannercontainer {	
+        width:310px;height:170px;
+    }
+}  
+
+/**************************************************************
+	DEMO STYLES - ONLY FOR THE PREVIEW ON CODECANYON 
+****************************************************************/	
+
+.titlecontainer{
+	background-color:#444;
+	width:100%;
+	margin-bottom:50px;
+}
+
+.centered{
+	width:890px;
+	padding:30px 0;
+	margin:auto;
+}
+
+.logo{		
+	width:380px;
+	height:45px;	
+}
+
+.buynow {	
+	background:url(../images/tiles/buynow.png) no-repeat top;
+	width:176px;
+	height:50px;	
+	float:right;
+	margin-top:5px;
+	cursor:pointer;
+}
+
+.buynow:hover {	background-position:bottom;}
+
+.title_left	{	float:left;}
+
+.subtitle { 			
+	color:#999;
+	font-family:arial;
+	font-size:11px;
+	padding:0px 0px 0px 0px;
+}
+
+.configurator {	
+    width:900px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#ddd;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	overflow:hidden;
+	margin-top:50px;
+}
+
+.configtitle {
+	width:860px;
+	height:36px;								
+	background-color:#aaa;
+	padding:20px 20px 10px;				
+}
+		
+.cti {	
+    width:388px; height:36px;
+}
+		
+.optiontitle {
+	font-family:arial;
+	font-size:14px;
+	line-height:22px;
+	color:#444;
+	text-shadow:0px 0px 1px #fff;
+	font-weight:bold;
+	margin-bottom:20px;
+}
+
+.inside	{padding:20px;}
+
+.t_mixed	{	background:url(../images/tiles/transition_mixed.png) no-repeat 5px 5px}				
+.t_box1		{	background:url(../images/tiles/transition_boxes.png) no-repeat 5px 5px}				
+.t_box2		{	background:url(../images/tiles/transition_boxes.png) no-repeat 5px 5px}				
+.t_szh		{	background:url(../images/tiles/transition_slotzoomhorizontal.png) no-repeat 5px 5px}				
+.t_ssh		{	background:url(../images/tiles/transition_slotslidehorizontal.png) no-repeat 5px 5px}				
+.t_sfh		{	background:url(../images/tiles/transition_slotfadehorizontal.png) no-repeat 5px 5px}				
+.t_szv		{	background:url(../images/tiles/transition_slotzoomvertical.png) no-repeat 5px 5px}				
+.t_ssv		{	background:url(../images/tiles/transition_slotslidevertical.png) no-repeat 5px 5px}				
+.t_sfv		{	background:url(../images/tiles/transition_slotfadevertical.png) no-repeat 5px 5px}				
+.t_c1		{	background:url(../images/tiles/transition_curtainone.png) no-repeat 5px 5px}				
+.t_c2		{	background:url(../images/tiles/transition_curtaintwo.png) no-repeat 5px 5px}				
+.t_c3		{	background:url(../images/tiles/transition_curtainthree.png) no-repeat 5px 5px}				
+.t_sl		{	background:url(../images/tiles/transition_slideleft.png) no-repeat 5px 5px}				
+.t_sr		{	background:url(../images/tiles/transition_slideright.png) no-repeat 5px 5px}				
+.t_su		{	background:url(../images/tiles/transition_slideup.png) no-repeat 5px 5px}				
+.t_sd		{	background:url(../images/tiles/transition_slidedown.png) no-repeat 5px 5px}				
+.t_sf		{	background:url(../images/tiles/transition_fade.png) no-repeat 5px 5px}				
+
+
+.transition	{	
+    width:320px; 
+	height:20px; 
+	background-color:#eee;	
+	border:1px solid #d0d0d0;			
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	font-family:arial;
+	font-size:14px;
+	line-height:22px;
+	color:#FF7200;
+	text-shadow:0px 0px 1px #fff;
+	font-weight:bold;
+	padding:10px 0px 10px 90px;
+	margin-bottom:5px;
+	cursor:pointer;
+}
+
+.transition:hover,
+.transition.selected {
+	color:#fff;
+	background-color:#aaa;
+	text-shadow:0px 0px 0px #000;				
+	border:1px solid #aaa;						
+}		
+				
+.radio {	
+    background:url(../images/tiles/radio.png) no-repeat top left;
+	font-family:arial;
+	font-size:14px;
+	height:19px;
+	color:#777;
+	text-shadow:0px 0px 1px #fff;
+	padding: 0px 0px 0px 27px; 
+	margin-right:20px;
+	float:left;	
+	cursor:pointer;
+}	
+		
+.clear {clear:both;}
+						
+.radio.selected, .radio:hover {background-position: bottom left}			
+
+.configurator_left	{	width:410px; float:left;}				
+.configurator_right	{	width:410px; float:right;}	
+
+.dragline {	
+    position:relative; background:url(../images/tiles/dragsliderbg.png) no-repeat; width:410px; height:20px;
+	font-family:arial;
+	font-size:14px;
+	height:19px;
+	color:#777;
+	text-shadow:0px 0px 1px #fff;
+}
+.dragger {cursor:pointer;position:absolute; left:50%; background:url(../images/tiles/dragnotch.png) no-repeat; width:7px; height:22px; margin-left:-3px;}
+
+.nonclickable	{	opacity:0.5; cursor:default;}
+.nonclickable:hover	{	background-position:top left;}
+
+
+.plugoptions {	
+	overflow:hidden;
+	width:390px; 					
+	background-color:#eee;	
+	border:1px solid #d0d0d0;			
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	font-family:arial;
+	font-size:12px;
+	line-height:22px;
+	color:#444;
+	text-shadow:0px 0px 1px #fff;
+	font-weight:bold;
+	padding:10px;
+	margin-bottom:40px;					
+}
+
+.accordion			{	cursor:pointer; background:url(../images/tiles/accordionswitch.png) no-repeat top left; width:17px; height:19px;	float:right;}		
+.accordion:hover	{ background-position:bottom left;}
+.accordion.selected	{ background-position:top right;}
+.accordion.selected:hover	{ background-position:bottom right;}
+			
+			
+.previewselector_container	{	 height:42px;width:332px; margin:80px auto 20px;}				
+.previewselector	{	float:left; background:url(../images/tiles/selectpreview.png) no-repeat 0px -42px; width:125px; height:42px;}
+
+.previewselector.zweite	{	background-position:-125px 0px; width:110px;}
+.previewselector.dritte	{	background-position:-235px 0px; width:96px;}
+
+.previewselector.selected, .previewselector:hover	{	background-position:left top;}
+
+.previewselector.zweite:hover, .previewselector.zweite.selected 	{	background-position:-125px -42px; width:110px;}
+.previewselector.dritte:hover, .previewselector.dritte.selected	{	background-position:-235px -84px; width:96px;}
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {		
+ 	.centered { 	width:750px;}		  	
+	.subtitle	{	clear:both !important; padding:0 !important;}
+	.centered	{	padding:30px 0px;}		  
+}
+  
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	.centered		 { 	width:480px;}	
+	.subtitle		{	clear:both !important; padding:0 !important;}
+	.centered		{	padding:30px 0px;}
+	.buynow		{	float:left; margin-top:20px;}
+	.configurator, 
+	.configtitle	{	width:480px;}
+	.configurator_right	{	float:left;}
+	.configurator_left		{	}
+}
+   
+@media only screen and (min-width: 0px) and (max-width: 479px) {
+	.centered		{ 	width: 320px;}	
+	.cti			{	width: 280px;}
+	.subtitle		{	clear:both !important; padding:0 !important;}			
+	.centered		{	padding:30px 0px;}
+	.buynow		{	float:left; margin-top:20px;}
+	.configurator, 
+	.configtitle	{	width:320px;}
+	.configurator_right	{	float:left; width:300px;}
+	.configurator_left	{	width:280px;}
+	.transition	{	width:190px;}
+	.plugoptions 	{	width:260px; font-size:10px;}
+	.breakmenow	{	clear:both; margin-top:30px;}
+	.dragline		{	width:260px;}
+	.logo			{	width:320px; overflow:hidden; }
+	.select_navigationtype	{	display:none;}
+	.select_bulletstyle	{	display:none;}
+	.select_bhposition		{	display:none;}
+	.select_bvposition		{	display:none;}
+	.select_navarrows		{	display:none;}
+	.select_navshow		{	display:none;}
+	.select_slidetime		{	display:none;}
+	.select_slots		{	display:none;}
+	.previewselector_container	{	width:301px; height:42px; margin:80px auto 20px; overflow:hidden; }	
+	.previewselector			{	width:105px;}
+	.previewselector.zweite	{	width:100px;}
+	.previewselector.zweite:hover,
+	.previewselector.zweite.selected {	width:100px;}
+	.previewselector.dritte	{	width:96px;}
+}

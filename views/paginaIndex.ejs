@@ -1,0 +1,105 @@
+<div class="row-fluid">
+    <div class="box boxIndexListagem">
+        <div class="title">
+            <h4>Textos</h4>
+        </div>
+        <!-- End .title -->
+          
+        <div class="content top">
+            <table id="tabelaPaginas" class="table table-bordered table-striped">
+                <thead>
+                    <tr role="row">
+                        <th style="width: 274px;">Página</th>
+                        <!--<th style="width: 74px;">Perfil Completo</th>-->
+                        <th class="ms no_sort sorting_disabled" aria-label="Actions" style="width: 100px;">Ações</th>
+                    </tr>
+                </thead>
+              
+                <tbody>
+
+                    <%
+                    
+                    for (var index = 0; index < viewModel.length; index++) {
+
+                    %>
+
+                    <tr>
+                        <td><%= viewModel[index].descricao %></td>
+                        <td class="ms ">
+                            <div class="btn-group"> 
+                                <!--<a href="#" target="_blank" class="btn btn-small" rel="tooltip" data-placement="top" data-original-title="Visualizar"><i class="gicon-eye-open"></i></a>-->
+                                <a href="/admin/pagina/alterar/<%= viewModel[index].id %>" class="btn btn-small" rel="tooltip" data-placement="top" data-original-title="Editar"><i class="gicon-edit"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <% } %>
+
+                </tbody>
+            </table>
+        </div>
+        <!-- End .content -->
+
+        <a href="#instrucoes" class="btn new_item" data-toggle="modal"><i class="icon-info-sign"></i></a>
+    </div>
+    <!-- End box --> 
+</div>
+
+<!-- Modal -->
+<div class="modal hide fade" id="instrucoes" tabindex="-1" role="dialog" aria-labelledby="instrucoes" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
+        <h3 id="instrucoes">Instruções</h3>
+    </div>
+    <div class="modal-body">
+        <h4>Funcionamento da tabela</h4>
+
+        <ul>
+            <li>Para alterar os textos das respectivas páginas, na linha correspondente, clique no botão <a class="btn btn-small" rel="tooltip" data-placement="top" data-original-title="Editar"><i class="gicon-edit"></i></a> (<b>Editar</b>) que está na coluna <b>Ações</b></li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">Fechar</button>
+    </div>
+</div>
+
+<!-- Data tables --> 
+<script src="/js/plugins/datatables/js/jquery.dataTables.js"></script> 
+
+<script>
+    $(function () {
+        var dontSort = [];
+        $('#tabelaArtistas thead th').each(function () {
+            if ( $(this).hasClass( 'no_sort' )) {
+                dontSort.push( { "bSortable": false } );
+            } else {
+                dontSort.push( null );
+            }
+        });
+
+        $('#tabelaArtistas').dataTable({
+            "sDom": "<'row-fluid table_top_bar'<'span12'<'to_hide_phone' f>>>t<'row-fluid control-group full top' <'span4 to_hide_tablet'l><'span8 pagination'p>>",
+            "aaSorting": [[ 1, "asc" ]],
+            "bLengthChange": false,
+            "bPaginate": true,
+            "sPaginationType": "full_numbers",
+            "bJQueryUI": false,
+            "aoColumns": dontSort,
+            "oLanguage": {
+                //"sEmptyTable": "Não há dados disponíveis",
+                "sZeroRecords": "Nenhum registro encontrado",
+                "sSearch": "Busca",
+                //"sInfo": "Mostrando _START_ de _END_ num total de _TOTAL_ artistas",
+                //"sLengthMenu": "Mostrar _MENU_ registros",
+                "oPaginate": {
+                    "sFirst": "Primeira",
+                    "sLast": "Última",
+                    "sNext": "Próxima",
+                    "sPrevious": "Anterior"
+                }
+            }
+        });
+    });
+</script>
+
+<% include partial/mensagem %>

@@ -1,0 +1,234 @@
+/*body, html {height:100%}*/
+
+body {
+    border:0; 
+    min-width:950px; 
+    /*min-height:857px;*/
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: darkGray;
+    font-family: 'Trebuchet MS', sans-serif;
+    /*background: url(../images/background.jpg) no-repeat #b0c1d0;*/
+    overflow: hidden;
+}
+
+a {color: white;
+   transition: color ease-out 200ms;
+   -webkit-transition: color ease-out 200ms;
+   -moz-transition: color ease-out 200ms;
+   -ms-transition: color ease-out 200ms;
+   -o-transition: color ease-out 200ms;
+}
+
+a:hover {color:#D24C40;}
+
+.color {
+    color: white;
+}
+
+#container {
+    position: absolute;
+    width: 960px;
+    left: 50%; top: 50%;
+    margin: -274px 0 0 -480px;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 10px black;
+}
+
+header {
+    box-sizing: border-box;
+}
+
+section {
+    padding: 20px;
+}
+
+section header h1 {
+    color: white;
+    font-family: Oswald;
+    font-size: 42px;
+    font-weight: normal;
+    line-height:42px;
+}
+
+article {
+    display: box;
+    display: -webkit-box;
+    display: -ms-box;
+    display: -moz-box;
+    display: -o-box;
+
+    margin-top: 20px;
+}
+
+footer {
+    margin-top: 20px;
+    padding-top: 20px;
+    font: 14px 'Trebuchet MS', sans-serif;
+    border-top: 1px solid;
+}
+
+footer h3 {    
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 16px;
+}
+
+section > footer div span:first-child {
+    display: inline-block;
+    width: 45px;
+}
+
+#container > footer {
+    display: -webkit-box;
+    height: 65px;
+    margin: 20px 0 0 0;
+    padding: 0 20px;
+    font-size: 14px;
+    border: none;
+    background-color: black;
+}
+
+#container > footer div {
+    display: -webkit-box;
+    -webkit-box-align: center;
+}
+
+#container > footer div:nth-child(1) {
+    -webkit-box-flex: 1;
+}
+
+#container > footer div:nth-child(2) a {
+    color: darkGray;
+    text-decoration:none;
+}
+
+#container > footer div:nth-child(2) span {
+    transition: color ease-out 200ms;
+   -webkit-transition: color ease-out 200ms;
+   -moz-transition: color ease-out 200ms;
+   -ms-transition: color ease-out 200ms;
+   -o-transition: color ease-out 200ms;
+}
+
+#container > footer div:nth-child(2) a:hover span:first-child {
+    color:#D24C40;
+}
+
+#container footer section {
+    float: left;
+    padding: 0 15px 0 0;
+    margin: 0 15px 0 0;
+    border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+#container footer section.last {
+    float: left;
+    padding: 0 !important;
+    margin: 0 !important;
+    border:  none;
+}
+
+#container footer section h3 {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 16px;
+    font-family: Oswald;
+    margin-bottom: 15px;    
+}
+
+/* ALBUMS */
+
+article .albums, article .albums img {
+    width: 250px;
+    height: 250px;
+}
+
+/* PLAYLIST */
+
+.playlist {
+    position:relative;
+    -webkit-box-flex: 1;
+    margin-left: 15px;
+    color:#898888;
+    max-height: 200px;
+}
+
+.playlist ul li {
+    display: box;
+    display: -webkit-box;
+    display: -ms-box;
+    display: -moz-box;
+    display: -o-box;
+
+    box-orient: horizontal;
+    -webkit-box-orient: horizontal;
+    -ms-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -o-box-orient: horizontal;
+
+    box-align: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-box-align: center;
+    -o-box-align: center;
+
+    min-height: 45px;
+    overflow:hidden;
+
+    transition: all 200ms;
+    -webkit-transition: all 200ms;
+    -ms-transition: all 200ms;
+    -moz-transition: all 200ms;
+    -o-transition: all 200ms;
+}
+
+.playlist .song:hover {
+    cursor: pointer;
+}
+
+.playlist .controls {
+    width: 21px;
+    height: 20px;
+}
+
+.playlist .controls .play {
+    position:  absolute;
+}
+
+.playlist img {
+    margin-top: 1px;
+    height: 15px;
+}
+
+.playlist .pause {
+    opacity: 0;
+}
+
+.playlist .h5aSourcePlaying .play {
+    opacity: 0;
+}
+
+.playlist .h5aSourcePlaying .pause {
+    opacity: 1;
+}
+
+.listHoverFX li:hover
+{
+    padding-left: 10px;    
+    background-color: #D24C40;
+}
+
+.listHoverFX li:hover p
+{
+    /*cursor: default;*/
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+/* SONG PLAYER */
+
+#player {
+    display: none;
+}

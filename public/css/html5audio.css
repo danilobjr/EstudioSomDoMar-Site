@@ -1,0 +1,173 @@
+.html5Audio {
+    position: absolute;
+    box-sizing: border-box;
+    width:  94px;
+    height: 47px;
+    background-color: #808080;
+}
+
+.h5aControls {
+    float: left;
+    height: 100%;
+}
+
+.h5aControls img {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.h5aControls > div:hover {
+    background-color: black;
+}
+
+.h5aSong {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.h5aSongName {
+    position: relative;
+    
+    transition: all 150ms ease-out 100ms;
+    -webkit-transition: all 150ms ease-out 100ms;
+    -moz-transition: all 150ms ease-out 100ms;
+    -ms-transition: all 150ms ease-out 100ms;
+    -o-transition: all 150ms ease-ou 100ms;
+}
+
+.h5aSong p {
+    position: relative;
+    margin: 0;
+    white-space: nowrap;
+    color: white;
+}
+
+.h5aAlbumCover {
+    position: relative;
+    width: 94px;
+    height: 94px;
+    top: -15px;
+    opacity: 0;
+    background-color: Gray;    
+    
+    transition: all 150ms ease-out;
+    -webkit-transition: all 150ms ease-out;
+    -moz-transition: all 150ms ease-out;
+    -ms-transition: all 150ms ease-out;
+    -o-transition: all 150ms ease-out;
+}
+
+.h5aAnimShowHideSong .h5aAlbumCover {
+    -webkit-animation: showHideAlbumCover 4s ease-out 1 alternate;
+}
+
+.h5aControls:hover + div .h5aAlbumCover {
+    top: 0;
+    opacity: 1;
+}
+
+.h5aControls:hover + div .h5aSongName {
+    opacity: 1;
+}
+
+.h5aDefaultAlbumCover {
+    position: relative;
+    width: 94px;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.h5aPlayPause {
+    position: relative;
+    float: left;
+    width: 47px;
+    height: 100%;
+}
+
+.h5aPlayPause img {
+    left: 14px;
+    top: 13px;
+    height: 20px;
+}
+
+.h5aVolume, .h5aRadioContainer {
+    position: relative;
+    float: left;
+    width: 47px;
+    height: 100%;
+}
+
+.h5aVolume img, .h5aRadioContainer img {
+    position: absolute;
+}
+
+.h5aVolume img, {
+    height: 15px;
+    left: 15px;
+    top: 15px;
+}
+
+.h5aRadioContainer img {
+    height: 25px;
+    left: 12px;
+    top: 9px;
+}
+    
+.h5aPlayBtn {
+    position: absolute;
+}
+
+.h5aPauseBtn {
+    position: relative;
+}
+
+.h5aVolumeMaxBtn {
+    opacity: 1;
+}
+
+.h5aVolumeMuteBtn {
+    opacity: 0;
+}
+
+.h5aDeactivated .h5aSong {
+    opacity: 0;
+}
+
+.h5aDeactivated .h5aPauseBtn {
+    opacity: 0;
+}
+
+.h5aDeactivated .h5aVolumeMuteBtn {
+    opacity: 0;
+}
+
+.h5aPlaying .h5aPauseBtn {
+    opacity: 1;
+}
+
+.h5aPlaying .h5aPlayBtn {
+    opacity: 0;
+}
+
+.h5aPaused .h5aPauseBtn {
+    opacity: 0;
+}
+
+.h5aPaused .h5aPlayBtn {
+    opacity: 1;
+}
+
+.h5aPaused .h5aSongName {
+    opacity: 0;
+}
+
+.h5aMuted .h5aVolumeMaxBtn {
+    opacity: 0;
+}
+
+.h5aMuted .h5aVolumeMuteBtn {
+    opacity: 1;
+}

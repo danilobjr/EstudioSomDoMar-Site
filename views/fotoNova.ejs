@@ -1,0 +1,98 @@
+<div class="row-fluid">
+    <div class="span12">
+        <div class="box">
+            <div class="title">
+                <h4> <span>Nova Foto</span> </h4>
+            </div>
+
+            <div class="content">
+                <form id="formNovaFoto" method="post" action="/admin/foto/nova" class="form-horizontal cmxform" autocomplete="off">
+                    <div class="form-row control-group row-fluid">
+                        <label class="control-label span3" for="titulo">Título *</label>
+                        <div class="controls span9">
+                            <input id="titulo" name="titulo" type="text" class="span12" placeholder="Legenda que aparecerá na foto quando ampliada"/>
+                            <label class="error errorRequired" style="display: none;">Por favor, informe o título da foto</label>
+                        </div>
+                    </div>
+                    <div class="form-row control-group row-fluid">
+                        <label class="control-label span3" for="secao">Seção *</label>
+                        <div class="controls span3">
+                            <div class="input-prepend row-fluid">
+                                <select id="secao" name="secao" class="row-fluid">
+                                    <option value="home">Home</option>
+                                    <option value="estudio">Estúdio</option>
+                                    <option value="musico">Músico</option>
+                                    <option value="participacao">Participação</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row control-group row-fluid">
+                        <label class="control-label span3" for="imagemPequena">Imagem Pequena *</label>
+                        <div class="controls span9">
+                            <input id="imagemPequena" name="imagemPequena" type="text" class="span12" placeholder="Exemplo: imagem_pequena.jpg" />
+                            <label class="error errorRequired" style="display: none;">Por favor, informe o nome do arquivo referente à imagem pequena que aparecerá na listagem</label>
+                            <label class="error errorMinlength" style="display: none;">O nome do arquivo precisa ter pelo menos 5 caracteres</label>
+                            <label class="error errorNomeArquivo" style="display: none;">Não é permitio espaços, apenas '-' e '_'. É necessário um '.' separando o nome da extensão do arquivo.</label>
+                        </div>
+                    </div>
+                    <div class="form-row control-group row-fluid">
+                        <label class="control-label span3" for="imagemAmpliada">Imagem Ampliada *</label>
+                        <div class="controls span9">
+                            <input id="imagemAmpliada" name="imagemAmpliada" type="text" class="span12" placeholder="Exemplo: imagem_ampliada.jpg" />
+                            <label class="error errorRequired" style="display: none;">Por favor, informe o nome do arquivo referente à imagem apliada</label>
+                            <label class="error errorMinlength" style="display: none;">O nome do arquivo precisa ter pelo menos 5 caracteres</label>
+                            <label class="error errorNomeArquivo" style="display: none;">Não é permitio espaços, apenas '-' e '_'. É necessário um '.' separando o nome da extensão do arquivo.</label>
+                        </div>
+                    </div>
+                    <div class="form-actions row-fluid">
+                        <div class="span12">
+                            <a href="/admin/fotos" class="btn btn-large btn-secondary pull-right">Cancelar</a>
+                            <button type="submit" class="btn btn-large btn-success pull-right">Salvar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <a href="#instrucoesModal" class="btn new_item" data-toggle="modal"><i class="icon-info-sign"></i></a>
+        </div>
+        <!-- End .box --> 
+    </div>
+</div>
+
+<!-- Modal -->
+
+<div id="instrucoesModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Instruções</h3>
+    </div>
+    <div class="modal-body">
+        <h4>Para incluir uma nova foto, siga as instruções abaixo</h4>
+
+        <ul>
+            <li>Todos os campos são de preenchimento obrigatório</li>
+            <li>O campo <em>Seção</em> refere-se onde a foto irá aparecer no site, se na aba <em>ESTÚDIO</em>, <em>MÚSICOS</em> ou na página <em>HOME</em></li>
+            <li><b>Ambos</b> os arquivos de imagem devem ser copiados para a mesma pasta. O que irá diferenciar <b>qual pasta</b> será, é o tipo de foto que for selecionada</li>
+            <li>
+                Como os arquivos serão copiados para a mesma pasta, devem ter <b>nomes diferentes</b>. Por exemplo:
+                <ul>
+                    <li>Imagem Pequena: foto_estudio_p.jpg</li>
+                    <li>Imagem Ampliada: foto_estudio_g.jpg</li>
+                </ul>
+            </li>
+            <li>Caso a seleção seja <b>Home</b>, os arquivos de ambas as imagens devem ser copiados para a pasta <code>\public\img\foto\home</code></li>
+            <li>Caso a seleção seja <b>Estúdio</b>, os arquivos de ambas as imagens devem ser copiados para a pasta <code>\public\img\foto\estudio</code></li>
+            <li>Caso a seleção seja <b>Músico</b>, os arquivos de ambas as imagens devem ser copiados para a pasta <code>\public\img\foto\musico</code></li>
+            <li>Caso a seleção seja <b>Participação</b>, os arquivos de ambas as imagens devem ser copiados para a pasta <code>\public\img\foto\participacao</code></li>
+            <li>O tamanho ideal para a imagem pequena das seções <em>Estúdio</em> e <em>Músico</em> é de <code>159 x 159</code> pixels</li>
+            <li>Já para a seção <em>Home</em>, o tamanho ideal para a imagem pequena é de <code>303 x 227</code> pixels</li>
+            <li>Não há um tamanho ideal para a imagem ampliada</li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">Fechar</button>
+    </div>
+</div>
+
+<script src="/js/app/formNovaFoto.js"></script>

@@ -1,0 +1,27 @@
+OK - Popular BD
+OK - Verificar funcionamento (aparecimento / desaparecimento) de botão 'visualizar' na index de artistas (admin);
+OK - Adicionar em FOTOS o tipo BANNER e completar a lista de imagens com os banners;
+OK - Quando clico em imagem do banner e vou passando, chega até nas imagens de outras páginas. EVITAR ISSO;
+OK - Modificar nomenclatura de TIPO para SEÇÃO em fotos;
+XX - Implementar ativação / desativação de artista para apresentar no site;
+XX - Implementar listagem de artistas ATIVADOS no site 
+OK - Mostrar mensagem de "senha incorreta" na tela de login
+OK - Ampliar a tela de dashboard com mensagens ou links rápidos para q o submenu de usuario (qdo clicado na foto do usuário) apareça por completo
+OK - Permitir a mudança de texto das páginas: home, sobre, portfólio-jingles e portfólio-pessoal
+OK - Permitir mudança da página de contato através do link "Meu Perfil" em /admin
+ - Permitir mudança de senha
+OK - Implementar alteração das fotos do site: estúdio, músicos e BANNERS
+OK - Implementar alteração do portfólio do site: últimos lançamentos, outros trabalhos, jingles e pessoal;
+OK - Implementar validação de SEÇÃO OBRIGATÓRIA para Últimos Lançamentos e Pessoal;
+OK - Colocar player na portfolioIndex;
+OK - Modificar as âncoras de links dos sites para o nome em português (ex.: de page_works para portfolio, de page_about para sobre, etc.);
+- Disponibilizar acesso do site via registro A para o domínio estudiosomdomar.com.br
+XX - Detecção de CapsLock no Login
+>> - Retirar iFrame de email e trocar por email do nodejs
+XX - Modificar nome de usuário e grupo de usuário q aparece na layout: tirar hardcode e colocar dados dinâmicos
+XX - Implementar Busca???
+- Retirar local de busca e trocar por Ir Para Site
+- Trocar o botão do site por Voltar
+OK - Modificar local de ícones das redes sociais
+OK - Modificar ícones das redes sociais
+OK - Implementar Manter Serviços e Equipamentos

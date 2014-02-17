@@ -1,0 +1,163 @@
+<div class="row-fluid">
+    <div class="box boxIndexListagem">
+        <div class="title">
+            <h4>Portfólio</h4>
+        </div>
+        <!-- End .title -->
+          
+        <div class="content top">
+            <table id="tabelaPortfolio" class="table table-bordered table-striped">
+                <thead>
+                    <tr role="row">
+                        <th style="width: 274px;">Música</th>
+                        <th style="width: 74px;">Artista</th>
+                        <th style="width: 74px;">Seção</th>
+                        <th class="ms no_sort sorting_disabled" aria-label="Actions" style="width: 100px;">Ações</th>
+                    </tr>
+                </thead>
+              
+                <tbody>
+
+                    <%
+                    
+                    for (var index = 0; index < viewModel.length; index++) {
+
+                    %>
+
+                    <tr>
+                        <td><%= viewModel[index].nome %></td>
+                        <td><%= viewModel[index].artista %></td>
+                        <td>
+                            <% if (viewModel[index].secao === 'lancamento') { %> Últimos Lançamentos <% } %>
+                            <% if (viewModel[index].secao === 'outro') { %> Outros Trabalhos <% } %>
+                            <% if (viewModel[index].secao === 'jingle') { %> Jingles <% } %>
+                            <% if (viewModel[index].secao === 'pessoal') { %> Pessoal <% } %>
+                        </td>
+                        <td class="ms ">
+                            <div class="btn-group"> 
+                                <a class="btn btn-small play" rel="tooltip" data-placement="top" data-original-title="Play" data-song-url="/musicas/<%= viewModel[index].arquivoMusica %>">
+                                    <i class="gicon-play audio-control"></i>
+                                    <i class="gicon-stop audio-control" style="display: none"></i>
+                                </a>
+                                <a href="/admin/portfolio/alterar/<%= viewModel[index].id %>" class="btn btn-small" rel="tooltip" data-placement="top" data-original-title="Editar"><i class="gicon-edit"></i></a>
+                                <a href="#exclusaoModal" class="btn btn-small" data-url-exclusao="/admin/portfolio/excluir/<%= viewModel[index].id %>" data-toggle="modal" rel="tooltip" data-placement="top" data-original-title="Excluir"><i class="gicon-remove "></i></a> 
+                            </div>
+                        </td>
+                    </tr>
+
+                    <% } %>
+
+                </tbody>
+            </table>
+        </div>
+        <!-- End .content -->
+
+        <a href="#instrucoes" class="btn new_item" data-toggle="modal"><i class="icon-info-sign"></i></a>
+    </div>
+    <!-- End box --> 
+</div>
+
+<!-- Modal -->
+<div class="modal hide fade" id="exclusaoModal" tabindex="-1" role="dialog" aria-labelledby="confirmacao" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
+        <h3 id="confirmacao">Confirmação</h3>
+    </div>
+    <div class="modal-body">
+        <p>Deseja realmente excluir este item?</p>
+    </div>
+    <div class="modal-footer">
+        <a class="btn btn-primary confirmarExclusao" href="#">Sim</a>
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Não</button>
+    </div>
+</div>
+
+<div class="modal hide fade" id="instrucoes" tabindex="-1" role="dialog" aria-labelledby="instrucoes" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
+        <h3 id="instrucoes">Instruções</h3>
+    </div>
+    <div class="modal-body">
+        <h4>Funcionamento da tabela</h4>
+
+        <ul>
+            <li>A coluna <b>Seção</b> mostra o local (página) em que será exibida a música no site</li>
+            <li>Você poderá ouvir a música através do botão <a class="btn btn-small" rel="tooltip" data-placement="top" data-original-title="Tocar"><i class="gicon-play"></i></a> (<b>Play</b>)</li>
+            <li>Você poderá editar/corrigir informações clicando no botão <a class="btn btn-small" rel="tooltip" data-placement="top" data-original-title="Editar"><i class="gicon-edit"></i></a> (<b>Editar</b>) que está na coluna <b>Ações</b></li>
+            <li>Também é possível excluir uma música clicando no botão <a class="btn btn-small" rel="tooltip" data-placement="top" data-original-title="Excluir"><i class="gicon-remove"></i></a> (<b>Excluir</b>) que está na coluna <b>Ações</b>. Porém, não é possível excluir todos os itens de uma determinada seção, é necessário que haja pelo menos um item de cada</li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">Fechar</button>
+    </div>
+</div>
+
+<!-- Data tables --> 
+<script src="/js/plugins/datatables/js/jquery.dataTables.js"></script> 
+
+<script>
+    $(function () {
+        var dontSort = [];
+        $('#tabelaPortfolio thead th').each(function () {
+            if ($(this).hasClass('no_sort')) {
+                dontSort.push({ "bSortable": false });
+            } else {
+                dontSort.push(null);
+            }
+        });
+
+        $('#tabelaPortfolio').dataTable({
+            "sDom": "<'row-fluid table_top_bar'<'span12'<'to_hide_phone' f>>>t<'row-fluid control-group full top' <'span4 to_hide_tablet'l><'span8 pagination'p>>",
+            "aaSorting": [[2, "desc"]],
+            "bLengthChange": false,
+            "bPaginate": true,
+            "sPaginationType": "full_numbers",
+            "bJQueryUI": false,
+            "aoColumns": dontSort,
+            "oLanguage": {
+                //"sEmptyTable": "Não há dados disponíveis",
+                "sZeroRecords": "Nenhum registro encontrado",
+                "sSearch": "Busca",
+                //"sInfo": "Mostrando _START_ de _END_ num total de _TOTAL_ artistas",
+                //"sLengthMenu": "Mostrar _MENU_ registros",
+                "oPaginate": {
+                    "sFirst": "Primeira",
+                    "sLast": "Última",
+                    "sNext": "Próxima",
+                    "sPrevious": "Anterior"
+                }
+            }
+        });
+
+        $(document).on('click', 'a[href=#exclusaoModal]', function (e) {
+            e.preventDefault();
+            var _this = $(e.currentTarget);
+            var urlExclusao = _this.data().urlExclusao;
+            $('a.confirmarExclusao').attr('href', urlExclusao);
+        });
+
+        $('.play').on('click', function (e) {
+            debugger;
+            var _this = $(e.currentTarget);
+            $('audio').remove();
+            var _play = $('.play').not(_this);
+            _play.attr('data-original-title', 'Play');
+            _play.children('.gicon-play').show();
+            _play.children('.gicon-stop').hide();
+
+            _this.find('.audio-control').toggle();
+            var originalTitle = (_this.attr('data-original-title') === 'Play') ? 'Stop' : 'Play';
+            _this.attr('data-original-title', originalTitle);
+            $('.tooltip .tooltip-inner').text(originalTitle);
+            var audio = $('<audio>').attr({ src: _this.data().songUrl, loop: 'loop' }).appendTo(_this).get(0);
+
+            if (originalTitle === 'Play') {
+                audio.pause();
+            } else {
+                audio.play();
+            }
+        });
+    });
+</script>
+
+<% include partial/mensagem %>

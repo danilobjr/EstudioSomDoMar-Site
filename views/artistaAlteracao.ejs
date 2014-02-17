@@ -1,0 +1,565 @@
+<div class="row-fluid">
+    <!--<div class="span6">-->
+    <div class="box">
+        <div class="title row-fluid ">
+            <div class="pull-left">
+                <h4>Alterar Artista</h4>
+            </div>
+            <div class="btn-toolbar pull-right ">
+                <div class="btn-group"> 
+                    <a href="/artista/<%= viewModel.id %>" target="_blank" class="btn btnVisualizar">Visualizar</a> 
+                    <a id="abrir-modal" href="#instrucoesDadosPessoais" class="btn new_item" data-toggle="modal"><i class="icon-info-sign"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- End .title -->
+
+        <div class="content">
+            <ul id="tabAlterarArtista" class="nav nav-tabs">
+                <li class="active"><a href="#dados" data-toggle="tab" class="mostrar-instrucao" data-modal="#instrucoesDadosPessoais">Dados Pessoais</a></li>
+                <li>
+                    <a href="#musicas" data-toggle="tab" class="mostrar-instrucao" data-modal="#instrucoesMusicas">
+                        <% if (!(typeof viewModel.musicas != 'undefined')) { %> 
+                            <i rel="tooltip" data-placement="top" data-original-title="Dados incompletos" class="icon-exclamation-sign"></i>
+                        <% } %>
+                        Músicas
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <% if (!(typeof viewModel.imagens.perfil != 'undefined')) { %> 
+                            <i rel="tooltip" data-placement="top" data-original-title="Dados incompletos" class="icon-exclamation-sign"></i>
+                        <% } %>
+                        Imagens<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#imagemPerfil" data-toggle="tab" class="mostrar-instrucao" data-modal="#instrucoesPerfil">Perfil</a></li>
+                        <li><a href="#background" data-toggle="tab" class="mostrar-instrucao" data-modal="#instrucoesBackground">Background</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade active in" id="dados">
+                    <form id="formDadosPessoais" method="post" action="/admin/artista/alterar/dados-pessoais" class="form-horizontal cmxform" autocomplete="off">
+                        <input type="hidden" name="idArtista" value="<%= viewModel.id %>" />
+                        <div class="form-row control-group row-fluid">
+                            <label class="control-label span3" for="nome">Nome *</label>
+                            <div class="controls span8">
+                                <input id="nome" name="nome" type="text" class="span12" value="<%= viewModel.nome %>"/>
+                                <label class="error errorRequired" style="display: none;">Por favor, informe o nome do artista</label>
+                                <label class="error errorMinlength" style="display: none;">O nome precisa ter pelo menos 2 caracteres</label>
+                            </div>
+                        </div>
+                        <div class="form-row control-group row-fluid">
+                            <label class="control-label span3" for="site">Site</label>
+                            <div class="controls span8">
+                                <div class="input-prepend row-fluid"> <span class="add-on"><i class="icon-link"></i></span>
+                                    <input class="row-fluid" type="text" id="site" name="site" <% if (typeof viewModel.site != 'undefined') { %> value="<%= viewModel.site %>" <% } %>/>
+                                    <label class="error errorMinlength" style="display: none;">O site precisa ter pelo menos 5 caracteres</label>
+                                    <label class="error errorUrl" style="display: none;">A URL informada não é válida</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row control-group row-fluid">
+                            <label class="control-label span3" for="email">Email *</label>
+                            <div class="controls span8">
+                                <input id="email" name="email" type="text" class="span12" value="<%= viewModel.email %>" />
+                                <label class="error errorRequired" style="display: none;">Por favor, informe o email</label>
+                                <label class="error errorMinlength" style="display: none;">O email precisa ter pelo menos 6 caracteres</label>
+                                <label class="error errorEmail" style="display: none;">O email informado não é válido</label>
+                            </div>
+                        </div>
+
+                        <!-- Campo Telefones -->
+
+                        <% for (var i = 0; i < viewModel.telefones.length; i++) { %>
+
+                        <% if (i === 0) { %>
+
+                            <div class="form-row control-group row-fluid">
+                                <label class="control-label span3" for="telefone">Telefone *</label>
+                                <div class="controls span3">
+                                    <div class="input-prepend row-fluid">
+                                        <select id="tipoTelefone" name="tipoTelefone" class="row-fluid">
+                                            <option value="fixo" <%= (viewModel.telefones[i].tipo === 'fixo') ? 'selected' : '' %>>Fixo</option>
+                                            <option value="oi" <%= (viewModel.telefones[i].tipo === 'oi') ? 'selected' : '' %>>Oi</option>
+                                            <option value="tim" <%= (viewModel.telefones[i].tipo === 'tim') ? 'selected' : '' %>>TIM</option>
+                                            <option value="claro" <%= (viewModel.telefones[i].tipo === 'claro') ? 'selected' : '' %>>Claro</option>
+                                            <option value="vivo" <%= (viewModel.telefones[i].tipo === 'vivo') ? 'selected' : '' %>>Vivo</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="controls span4">
+                                    <div class="input-prepend row-fluid"> <span class="add-on"><i class="icon-phone"></i></span>
+                                        <input type="tel" id="telefone" name="telefone" class="row-fluid" alt="phone" placeholder="Número" value="<%= viewModel.telefones[i].numero %>" />
+                                        <label class="error errorRequired" style="display: none;">Por favor, informe o telefone</label>
+                                        <label class="error errorMinlength" style="display: none;">O telefone precisa ter pelo menos 14 caracteres</label>
+                                    </div>
+                                </div>
+                                <div class="btn-controls btn-group inline span1">
+                                    <a class="btn adicionarTelefone" href="#">
+                                        <span class="icon-plus"></span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        <% } else { %>
+
+                            <div class="form-row control-group row-fluid">
+                                <label class="control-label span3" for="telefone"></label>
+                                <div class="controls span3">
+                                    <div class="input-prepend row-fluid">
+                                        <select id="tipoTelefone" name="tipoTelefone" class="row-fluid">
+                                            <option value="fixo" <%= (viewModel.telefones[i].tipo === 'fixo') ? 'selected' : '' %>>Fixo</option>
+                                            <option value="oi" <%= (viewModel.telefones[i].tipo === 'oi') ? 'selected' : '' %>>Oi</option>
+                                            <option value="tim" <%= (viewModel.telefones[i].tipo === 'tim') ? 'selected' : '' %>>TIM</option>
+                                            <option value="claro" <%= (viewModel.telefones[i].tipo === 'claro') ? 'selected' : '' %>>Claro</option>
+                                            <option value="vivo" <%= (viewModel.telefones[i].tipo === 'vivo') ? 'selected' : '' %>>Vivo</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="controls span4">
+                                    <div class="input-prepend row-fluid"> <span class="add-on"><i class="icon-phone"></i></span>
+                                        <input type="tel" id="telefone" name="telefone" class="row-fluid" alt="phone" placeholder="Número" value="<%= viewModel.telefones[i].numero %>" />
+                                        <label class="error errorRequired" style="display: none;">Por favor, informe o telefone</label>
+                                        <label class="error errorMinlength" style="display: none;">O telefone precisa ter pelo menos 14 caracteres</label>
+                                    </div>
+                                </div>
+                                <div class="btn-controls btn-group inline span1">
+                                    <a class="btn adicionarTelefone" href="#">
+                                        <span class="icon-plus"></span>
+                                    </a>
+                                    <a class="btn removerTelefone" href="#">
+                                        <span class="icon-minus"></span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        <% } %> <!-- END if -->
+
+                        <% } %> <!-- END for -->
+
+                        <!-- END Campo Telefones -->
+
+                        <!-- Campo RedeSocial -->
+
+                        <% if (typeof viewModel.redesSociais == 'undefined') { %>
+
+                            <div class="form-row control-group row-fluid">
+                                <label class="control-label span3" for="redeSocial">Rede Social</label>
+                                <div class="controls span3">
+                                    <div class="input-prepend row-fluid">
+                                        <select id="tipoRedeSocial" name="tipoRedeSocial" class="row-fluid">
+                                            <option value="facebook">Facebook</option>
+                                            <option value="twitter">Twitter</option>
+                                            <option value="youtube">YouTube</option>
+                                            <option value="googleplus">Google+</option>
+                                            <option value="myspace">MySpace</option>
+                                            <option value="soundcloud">SoundCloud</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="controls span4">
+                                    <div class="input-prepend row-fluid"> <span class="add-on"><i class="icon-facebook"></i></span>
+                                        <input type="text" id="redeSocial" name="redeSocial" class="row-fluid" placeholder="Link de acesso ao perfil" />
+                                        <label class="error errorMinlength" style="display: none;">O link precisa ter pelo menos 10 caracteres</label>
+                                        <label class="error errorUrl" style="display: none;">O link informado não é válido</label>
+                                    </div>
+                                </div>
+                                <div class="btn-controls btn-group inline span1">
+                                    <a class="btn adicionarSocial" href="#">
+                                        <span class="icon-plus"></span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        <% } else { %>
+
+                            <% for (var i = 0; i < viewModel.redesSociais.length; i++) { %>
+
+                            <% if (i === 0) { %>
+
+                            <div class="form-row control-group row-fluid">
+                                <label class="control-label span3" for="redeSocial">Rede Social</label>
+                                <div class="controls span3">
+                                    <div class="input-prepend row-fluid">
+                                        <select id="tipoRedeSocial" name="tipoRedeSocial" class="row-fluid">
+                                            <option value="facebook" <%= (viewModel.redesSociais[i].tipo === 'facebook') ? 'selected' : '' %>>Facebook</option>
+                                            <option value="twitter" <%= (viewModel.redesSociais[i].tipo === 'twitter') ? 'selected' : '' %>>Twitter</option>
+                                            <option value="youtube" <%= (viewModel.redesSociais[i].tipo === 'youtube') ? 'selected' : '' %>>YouTube</option>
+                                            <option value="googleplus" <%= (viewModel.redesSociais[i].tipo === 'googleplus') ? 'selected' : '' %>>Google+</option>
+                                            <option value="myspace" <%= (viewModel.redesSociais[i].tipo === 'myspace') ? 'selected' : '' %>>MySpace</option>
+                                            <option value="soundcloud" <%= (viewModel.redesSociais[i].tipo === 'soundcloud') ? 'selected' : '' %>>SoundCloud</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="controls span4">
+                                    <div class="input-prepend row-fluid"> <span class="add-on"><i class="icon-facebook"></i></span>
+                                        <input type="text" id="redeSocial" name="redeSocial" class="row-fluid" placeholder="Link de acesso ao perfil" value="<%= viewModel.redesSociais[i].link %>" />
+                                        <label class="error errorMinlength" style="display: none;">O link precisa ter pelo menos 10 caracteres</label>
+                                        <label class="error errorUrl" style="display: none;">O link informado não é válido</label>
+                                    </div>
+                                </div>
+                                <div class="btn-controls btn-group inline span1">
+                                    <a class="btn adicionarSocial" href="#">
+                                        <span class="icon-plus"></span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <% } else { %>
+
+                            <div class="form-row control-group row-fluid">
+                                <label class="control-label span3" for="redeSocial"></label>
+                                <div class="controls span3">
+                                    <div class="input-prepend row-fluid">
+                                        <select id="tipoRedeSocial" name="tipoRedeSocial" class="row-fluid">
+                                            <option value="facebook" <%= (viewModel.redesSociais[i].tipo === 'facebook') ? 'selected' : '' %>>Facebook</option>
+                                            <option value="twitter" <%= (viewModel.redesSociais[i].tipo === 'twitter') ? 'selected' : '' %>>Twitter</option>
+                                            <option value="youtube" <%= (viewModel.redesSociais[i].tipo === 'youtube') ? 'selected' : '' %>>YouTube</option>
+                                            <option value="googleplus" <%= (viewModel.redesSociais[i].tipo === 'googleplus') ? 'selected' : '' %>>Google+</option>
+                                            <option value="myspace" <%= (viewModel.redesSociais[i].tipo === 'myspace') ? 'selected' : '' %>>MySpace</option>
+                                            <option value="soundcloud" <%= (viewModel.redesSociais[i].tipo === 'soundcloud') ? 'selected' : '' %>>SoundCloud</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="controls span4">
+                                    <div class="input-prepend row-fluid"> <span class="add-on"><i class="icon-facebook"></i></span>
+                                        <input type="text" id="redeSocial" name="redeSocial" class="row-fluid" placeholder="Link de acesso ao perfil" value="<%= viewModel.redesSociais[i].link %>" />
+                                        <label class="error errorMinlength" style="display: none;">O link precisa ter pelo menos 10 caracteres</label>
+                                        <label class="error errorUrl" style="display: none;">O link informado não é válido</label>
+                                    </div>
+                                </div>
+                                <div class="btn-controls btn-group inline span1">
+                                    <a class="btn adicionarSocial" href="#">
+                                        <span class="icon-plus"></span>
+                                    </a>
+                                    <a class="btn removerSocial" href="#">
+                                        <span class="icon-minus"></span>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <% } %> <!-- END if -->
+
+                            <% } %> <!-- END for -->
+
+                        <% } %> <!-- END if -->
+
+                        <!-- END Campo Telefones -->
+
+                        <div class="form-actions row-fluid">
+                            <div class="span12">
+                                <a href="/admin/artistas" class="btn btn-large btn-secondary pull-right">Cancelar</a>
+                                <button type="submit" class="btn btn-large btn-success pull-right">Salvar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="musicas">
+                    <% if (typeof viewModel.musicas == 'undefined') { %>
+                        
+                        <!--<h4>Ainda não há músicas vinculadas a este artista. Vincular pelo menos uma música é uma das etapas necessárias para ativar a visualização deste artista no site.</h4>-->
+                        <button class="btn btn-block btn-warning" rel="tooltip" data-placement="top" data-original-title="Alerta"><b>Ainda não há músicas vinculadas a este artista.</b><br/><small>Vincular pelo menos uma música é uma das etapas necessárias para ativar a visualização deste artista no site.</small></button>
+
+                    <% } %>
+                    
+                    <form id="formMusicas" method="post" action="/admin/artista/alterar/musicas" class="form-horizontal cmxform" autocomplete="off">
+                        <input type="hidden" name="idArtista" value="<%= viewModel.id %>" />
+
+                        <!-- Campo Musicas -->
+
+                        <!-- Se não houver músicas vinculadas, cria apenas uma linha vazia -->
+
+                        <% if (typeof viewModel.musicas == 'undefined') { %>
+
+                            <div class="form-row control-group control-with-many-inputs row-fluid">
+                                <label class="control-label span2" for="nome">Músicas *</label>
+                                <div class="controls span8">
+                                    <input type="text" id="nomeMusica" name="nomeMusica" class="row-fluid" placeholder="Nome da Música" />
+                                    <label class="error errorRequired" style="display: none;">Por favor, informe o nome da música</label>
+                                </div>
+                                <div class="controls span8 offset2">
+                                    <input type="text" id="nomeArquivoMusica" name="nomeArquivoMusica" class="row-fluid" placeholder="Arquivo MP3. Ex.: minha_cancao.mp3" />
+                                    <label class="error errorRequired" style="display: none;">Por favor, informe o nome do arquivo da música</label>
+                                    <label class="error errorMinlength" style="display: none;">O nome do arquivo precisa ter pelo menos 5 caracteres</label>
+                                    <label class="error errorNomeArquivo" style="display: none;">Não é permitio espaços, apenas '-' e '_'. É necessário um '.' separando o nome da extensão do arquivo.</label>
+                                </div>
+                                <div class="controls span8 offset2">
+                                    <input type="text" id="nomeArquivoCapaAlbum" name="nomeArquivoCapaAlbum" class="row-fluid" placeholder="Arquivo imagem da Capa do CD. Ex.: capa_cd.jpg" />
+                                    <label class="error errorRequired" style="display: none;">Por favor, informe o nome do arquivo da capa dp álbum</label>
+                                    <label class="error errorMinlength" style="display: none;">O nome do arquivo precisa ter pelo menos 5 caracteres</label>
+                                    <label class="error errorNomeArquivo" style="display: none;">Não é permitio espaços, apenas '-' e '_'. É necessário um '.' separando o nome da extensão do arquivo.</label>
+                                </div>
+                                <div class="btn-controls btn-group inline span1">
+                                    <a class="btn adicionarMusica" href="#">
+                                        <span class="icon-plus"></span>
+                                    </a>
+                                </div>
+                            </div>
+
+                        <% } else { %>
+
+                            <!-- Se já houver músicas vinculadas, lista -->
+
+                            <% for (var i = 0; i < viewModel.musicas.length; i++) { %>
+
+                            <% if (i === 0) { %>
+
+                                <div class="form-row control-group control-with-many-inputs row-fluid">
+                                    <label class="control-label span2" for="nome">Músicas *</label>
+                                    <div class="controls span8">
+                                        <input type="text" id="nomeMusica" name="nomeMusica" class="row-fluid" placeholder="Nome da Música" value="<%= viewModel.musicas[i].nome %>" />
+                                        <label class="error errorRequired" style="display: none;">Por favor, informe o nome da música</label>
+                                    </div>
+                                    <div class="controls span8 offset2">
+                                        <input type="text" id="nomeArquivoMusica" name="nomeArquivoMusica" class="row-fluid" placeholder="Nome do Arquivo (MP3) da Música. Ex.: minha_cancao.mp3" value="<%= viewModel.musicas[i].arquivoMusica %>" />
+                                        <label class="error errorRequired" style="display: none;">Por favor, informe o nome do arquivo da música</label>
+                                        <label class="error errorMinlength" style="display: none;">O nome do arquivo precisa ter pelo menos 5 caracteres</label>
+                                        <label class="error errorNomeArquivo" style="display: none;">Não é permitio espaços, apenas '-' e '_'. É necessário um '.' separando o nome da extensão do arquivo.</label>
+                                    </div>
+                                    <div class="controls span8 offset2">
+                                        <input type="text" id="nomeArquivoCapaAlbum" name="nomeArquivoCapaAlbum" class="row-fluid" placeholder="Nome do Arquivo (imagem) da Capa do Álbum. Ex.: capa_cd.jpg" value="<%= viewModel.musicas[i].arquivoCapaAlbum %>" />
+                                        <label class="error errorRequired" style="display: none;">Por favor, informe o nome do arquivo da capa dp álbum</label>
+                                        <label class="error errorMinlength" style="display: none;">O nome do arquivo precisa ter pelo menos 5 caracteres</label>
+                                        <label class="error errorNomeArquivo" style="display: none;">Não é permitio espaços, apenas '-' e '_'. É necessário um '.' separando o nome da extensão do arquivo.</label>
+                                    </div>
+                                    <div class="btn-controls btn-group inline span1">
+                                        <a class="btn adicionarMusica" href="#">
+                                            <span class="icon-plus"></span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            <% } else { %>
+
+                                <div class="form-row control-group control-with-many-inputs row-fluid">
+                                    <label class="control-label span2" for="nome"></label>
+                                    <div class="controls span8">
+                                        <input type="text" id="nomeMusica" name="nomeMusica" class="row-fluid" placeholder="Nome da Música" value="<%= viewModel.musicas[i].nome %>" />
+                                        <label class="error errorRequired" style="display: none;">Por favor, informe o nome da música</label>
+                                    </div>
+                                    <div class="controls span8 offset2">
+                                        <input type="text" id="nomeArquivoMusica" name="nomeArquivoMusica" class="row-fluid" placeholder="Nome do Arquivo (MP3) da Música. Ex.: minha_cancao.mp3" value="<%= viewModel.musicas[i].arquivoMusica %>" />
+                                        <label class="error errorRequired" style="display: none;">Por favor, informe o nome do arquivo da música</label>
+                                        <label class="error errorMinlength" style="display: none;">O nome do arquivo precisa ter pelo menos 5 caracteres</label>
+                                        <label class="error errorNomeArquivo" style="display: none;">Não é permitio espaços, apenas '-' e '_'. É necessário um '.' separando o nome da extensão do arquivo.</label>
+                                    </div>
+                                    <div class="controls span8 offset2">
+                                        <input type="text" id="nomeArquivoCapaAlbum" name="nomeArquivoCapaAlbum" class="row-fluid" placeholder="Nome do Arquivo (imagem) da Capa do Álbum. Ex.: capa_cd.jpg" value="<%= viewModel.musicas[i].arquivoCapaAlbum %>" />
+                                        <label class="error errorRequired" style="display: none;">Por favor, informe o nome do arquivo da capa dp álbum</label>
+                                        <label class="error errorMinlength" style="display: none;">O nome do arquivo precisa ter pelo menos 5 caracteres</label>
+                                        <label class="error errorNomeArquivo" style="display: none;">Não é permitio espaços, apenas '-' e '_'. É necessário um '.' separando o nome da extensão do arquivo.</label>
+                                    </div>
+                                    <div class="btn-controls btn-group inline span1">
+                                        <a class="btn adicionarMusica" href="#">
+                                            <span class="icon-plus"></span>
+                                        </a>
+                                        <a class="btn removerMusica" href="#">
+                                            <span class="icon-minus"></span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            <% } %> <!-- END if -->
+
+                            <% } %> <!-- END for -->
+
+                        <% } %> <!-- END if -->
+
+                        <!-- END Campo Telefones -->
+
+                        <div class="form-actions row-fluid">
+                            <div class="span12">
+                                <a href="/admin/artistas" class="btn btn-large btn-secondary pull-right">Cancelar</a>
+                                <button type="submit" class="btn btn-large btn-success pull-right">Salvar</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="tab-pane fade" id="imagemPerfil">
+                    <% if (typeof viewModel.imagens.perfil == 'undefined') { %>
+                        
+                        <!--<h4>Ainda não há imagem de perfil vinculada a este artista. Vincular pelo a imagem de perfil é uma das etapas necessárias para ativar a visualização deste artista no site.</h4>-->
+                        <button class="btn btn-block btn-warning" rel="tooltip" data-placement="top" data-original-title="Alerta"><b>Ainda não há imagem de perfil vinculada a este artista.</b><br/><small>Vincular pelo a imagem de perfil é uma das etapas necessárias para ativar a visualização deste artista no site.</small></button>
+
+                    <% } %>
+
+                    <form id="formImagemPerfil" method="post" action="/admin/artista/alterar/imagem-perfil" class="form-horizontal cmxform" autocomplete="off">
+                        <input type="hidden" name="idArtista" value="<%= viewModel.id %>" />
+                        <div class="form-row control-group row-fluid">
+                            <label class="control-label span3" for="imagemPerfil">Imagem do Perfil *</label>
+                            <div class="controls span8">
+                                <input id="imagemPerfil" name="imagemPerfil" type="text" class="span12" placeholder="Exemplo: imagem_de_perfil.jpg"
+                                    <% if (typeof viewModel.imagens.perfil != 'undefined') { %> value="<%= viewModel.imagens.perfil %>" <% } %>/>
+                                <label class="error errorRequired" style="display: none;">Por favor, informe o nome do arquivo referente à imagem</label>
+                                <label class="error errorMinlength" style="display: none;">O nome do arquivo precisa ter pelo menos 5 caracteres</label>
+                                <label class="error errorNomeArquivo" style="display: none;">Não é permitio espaços, apenas '-' e '_'. É necessário um '.' separando o nome da extensão do arquivo.</label>
+                            </div>
+                        </div>
+                        <div class="form-actions row-fluid">
+                            <div class="span12">
+                                <a href="/admin/artistas" class="btn btn-large btn-secondary pull-right">Cancelar</a>
+                                <button type="submit" class="btn btn-large btn-success pull-right">Salvar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="background">
+                    <form id="formBackground" method="post" action="/admin/artista/alterar/background" class="form-horizontal cmxform" autocomplete="off">
+                        <input type="hidden" name="idArtista" value="<%= viewModel.id %>" />
+                        <div class="form-row control-group row-fluid">
+                            <label class="control-label span3" for="corFundo">Cor de fundo *</label>
+                            <div class="controls span8">
+                                <input id="corFundo" name="corFundo" type="color" class="span12"
+                                    <% if (typeof viewModel.imagens.background.cor != 'undefined') { %> value="<%= viewModel.imagens.background.cor %>" <% } %>/>
+                            </div>
+                        </div>
+                        <div class="form-row control-group row-fluid">
+                            <label class="control-label span3" for="imagemBackground">Imagem de Background</label>
+                            <div class="controls span8">
+                                <input id="imagemBackground" name="imagemBackground" type="text" class="span12" placeholder="Exemplo: artista_background.jpg"
+                                    <% if (typeof viewModel.imagens.background.imagem != 'undefined') { %> value="<%= viewModel.imagens.background.imagem %>" <% } %>/>
+                                <label class="error errorMinlength" style="display: none;">O nome do arquivo precisa ter pelo menos 5 caracteres</label>
+                                <label class="error errorNomeArquivo" style="display: none;">Não é permitio espaços, apenas '-' e '_'. É necessário um '.' separando o nome da extensão do arquivo.</label>
+                            </div>
+                        </div>
+                        <div class="form-actions row-fluid">
+                            <div class="span12">
+                                <a href="/admin/artistas" class="btn btn-large btn-secondary pull-right">Cancelar</a>
+                                <button type="submit" class="btn btn-large btn-success pull-right" disabled>Salvar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- End .content --> 
+        <!--<a id="abrir-modal" href="#instrucoesDadosPessoais" class="btn new_item" data-toggle="modal"><i class="icon-info-sign"></i></a>-->
+    </div>
+    <!-- End  .box --> 
+    <!--</div>-->
+    <!-- End .span6 -->
+</div>
+
+<!-- Modal Instruções -->
+
+<div id="instrucoesDadosPessoais" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Instruções</h3>
+    </div>
+    <div class="modal-body">
+        <h4>Dados Pessoais</h4>
+
+        <ul>
+            <li>Os campos que contém um <b>*</b> são de preenchimento obrigatório, os demais são opcionais</li>
+            <li>Nos campos de <b>Telefone</b> e <b>Rede Social</b> você pode escolher o tipo de operadora e qual o tipo de rede social, respectivamente</li>
+            <li>Os botões 
+                <a class="btn">
+                    <span class="icon-plus"></span>
+                </a> adicionam um novo campo para <b>Telefone</b> ou <b>Rede Social</b>
+            </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">Fechar</button>
+    </div>
+</div>
+
+<div id="instrucoesMusicas" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Instruções</h3>
+    </div>
+    <div class="modal-body">
+        <h4>Músicas</h4>
+
+        <ul>
+            <li>É necessário preencher três campos para adicionar uma nova música: 
+                <ul>
+                    <li>o <em>nome da música</em>,</li> 
+                    <li>o nome do <em>arquivo de áudio</em> (mp3) e</li>
+                    <li>o nome do <em>arquivo de imagem</em> da capa do CD</li>
+                </ul>
+            </li>
+            <li>O arquivo de áudio (mp3) deve ser copiado para a pasta <code>\public\musicas</code></li>
+            <li>O arquivo de imagem da capa do CD deve ser copiado para a pasta <code>\public\img\cd</code></li>
+            <li>O tamanho ideal para a imagem é de <code>250 x 250</code> pixels</li>
+            <li>O botão 
+                <a class="btn">
+                    <span class="icon-plus"></span>
+                </a> adiciona um novo campo</b>
+            </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">Fechar</button>
+    </div>
+</div>
+
+<div id="instrucoesPerfil" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Instruções</h3>
+    </div>
+    <div class="modal-body">
+        <h4>Perfil</h4>
+
+        <ul>
+            <li>O campo de imagem do perfil deve conter o nome do arquivo de imagem com a foto do artista. </li>
+            <li>O arquivo deve ser copiado para a pasta <code>\public\img\foto\perfil</code></li>
+            <li>O tamanho ideal para a imagem é de <code>159 x 159</code> pixels</li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">Fechar</button>
+    </div>
+</div>
+
+<div id="instrucoesBackground" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Instruções</h3>
+    </div>
+    <div class="modal-body">
+        <h4>Background</h4>
+
+        <ul>
+            <li>O campo de <em>cor de fundo</em> determinará a cor de fundo complementar da página do artista. Será um complemento da imagem</li>
+            <li>O campo de <em>imagem de background</em> deve conter o nome do arquivo de imagem que ficará no plano de fundo da página do artista</li>
+            <li>O arquivo de imagem de background deve ser copiado para a pasta <code>\public\img\foto\background</code></li>
+            <li>Não há um tamanho ideal. Deve ser de pelo menos <code>480 x 720</code> pixels. O restante que não completar a tela será preenchido pela cor de fundo</li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">Fechar</button>
+    </div>
+</div>
+
+<!-- Modal Mensagem -->
+
+<% include partial/mensagem %>
+
+<script src="/js/jquery.validate.min.js"></script>
+<script src="/js/jquery.meio.mask.min.js"></script>
+<script src="/js/app/formDadosPessoais.js"></script>
+<script src="/js/app/formImagemPerfil.js"></script>
+<script src="/js/app/formBackground.js"></script>
+<script src="/js/app/formMusicas.js"></script>
+
+<script>
+    $(function () {
+        // TODO
+        //$('[type=text], select, [type=color]').on('change', function (e) {
+        //    $('.btnVisualizar').attr('disabled', true);
+        //});
+
+        $('.mostrar-instrucao').on('click', function (e) {
+            var _this = $(e.currentTarget);
+            var btnAbrirModal = $('#abrir-modal');
+            btnAbrirModal.attr('href', _this.data().modal);
+        });
+    });
+</script>

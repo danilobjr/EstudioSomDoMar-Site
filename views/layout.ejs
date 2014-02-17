@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html class="sidebar_default  no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Estúdio Som do Mar - Admin</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Página para administração do site www.estudiosomdomar.com.br" />
+    <meta name="author" content="Danilo Jr." />
+    <link rel="shortcut icon" href="/css/images/favicon.png">
+
+    <!-- styles -->
+    <link href="/css/twitter/bootstrap.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/twitter/responsive.css" rel="stylesheet">
+    <link href="/css/jquery-ui-1.8.23.custom.css" rel="stylesheet">
+    <script src="/js/plugins/modernizr.custom.32549.js"></script>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- General scripts --> 
+    <script src="/js/jquery.js" type="text/javascript"> </script> 
+    <script src="/js/jquery-ui-1.8.23.custom.min.js" type="text/javascript"></script> 
+    <!--[if !IE]> -->
+    <script src="/js/plugins/enquire.min.js" type="text/javascript"></script> 
+    <!-- <![endif]-->
+    <script src="/js/plugins/jquery.sparkline.min.js"></script> 
+    <script src="/js/plugins/excanvas.compiled.js"></script>
+    <script src="/js/bootstrap-transition.js" type="text/javascript"></script> 
+    <script src="/js/bootstrap-alert.js" type="text/javascript"></script> 
+    <script src="/js/bootstrap-modal.js" type="text/javascript"></script> 
+    <script src="/js/bootstrap-dropdown.js" type="text/javascript"></script> 
+    <script src="/js/bootstrap-scrollspy.js" type="text/javascript"></script> 
+    <script src="/js/bootstrap-tab.js" type="text/javascript"></script> 
+    <script src="/js/bootstrap-tooltip.js" type="text/javascript"></script> 
+    <script src="/js/bootstrap-popover.js" type="text/javascript"></script> 
+    <script src="/js/bootstrap-button.js" type="text/javascript"></script> 
+    <script src="/js/bootstrap-collapse.js" type="text/javascript"></script> 
+    <script src="/js/bootstrap-carousel.js" type="text/javascript"></script> 
+    <script src="/js/bootstrap-typeahead.js" type="text/javascript"></script> 
+    <script src="/js/bootstrap-affix.js" type="text/javascript"></script> 
+    <script src="/js/fileinput.jquery.js" type="text/javascript"></script> 
+    <script src="/js/jquery.touchdown.js" type="text/javascript"></script> 
+    <script src="/js/plugins/jquery.uniform.min.js"></script> 
+    <script src="/js/plugins/jquery.tinyscrollbar.min.js"></script> 
+    <script src="/js/jnavigate.jquery.min.js"></script> 
+    <script src="/js/jquery.touchSwipe.min.js"></script> 
+    <script src="/js/plugins/jquery.peity.min.js"></script> 
+
+    <!-- Flot charts --> 
+    <script src="/js/plugins/flot/jquery.flot.js"></script> 
+    <script src="/js/plugins/flot/jquery.flot.resize.js"></script> 
+</head>
+
+<body>
+
+<div id="loading"><img src="/img/ajax-loader.gif"></div>
+
+<div id="responsive_part">
+    <div class="logo"> 
+        <a href="/"><span>Site</span><span class="icon"></span></a> 
+    </div>
+    <ul class="nav responsive">
+        <li>
+            <button class="btn responsive_menu icon_item" data-toggle="collapse" data-target=".overview"> <i class="icon-reorder"></i> </button>
+        </li>
+    </ul>
+</div>
+
+<!-- Responsive part -->
+
+<div id="sidebar" class="">
+    <div class="scrollbar">
+        <div class="track">
+            <div class="thumb">
+                <div class="end"></div>
+            </div>
+        </div>
+    </div>
+    <div class="viewport ">
+        <div class="overview collapse">
+            <div class="search row-fluid container">
+                <h1 style="font-size: 52px; color: #aeaeae; margin-bottom: 0;">EZcms</h1>
+                <!--
+                <form class="form-search">
+                    <div class="input-append">
+                        <input type="text" class=" search-query" placeholder="">
+                        <button class="btn_search color_4">Busca</button>
+                    </div>
+                </form>
+                -->
+            </div>
+
+            <ul id="sidebar_menu" class="navbar nav nav-list container full">
+                <li class="accordion-group active color_4"> 
+                    <a class="dashboard" href="/admin">
+                        <img src="/img/icons/menu/dashboard.png"><span>Dashboard</span>
+                    </a> 
+                </li>
+                <li class="accordion-group color_4"> 
+                    <a class="accordion-toggle widgets collapsed " data-toggle="collapse" data-parent="#sidebar_menu" href="#collapse1"> 
+                        <!--<img src="/img/icons/menu/gallery.png" alt="" />-->
+                        <span>Textos</span>
+                    </a>
+                    <ul id="collapse1" class="accordion-body collapse">
+                        <li><a href="/admin/paginas">Todos</a></li>
+                    </ul>
+                </li>
+                <li class="accordion-group color_4"> 
+                    <a class="accordion-toggle widgets collapsed " data-toggle="collapse" data-parent="#sidebar_menu" href="#collapse2"> 
+                        <!--<img src="/img/icons/menu/gallery.png" alt="" />-->
+                        <span>Fotos</span>
+                    </a>
+                    <ul id="collapse2" class="accordion-body collapse">
+                        <li><a href="/admin/fotos">Todas</a></li>
+                        <li><a href="/admin/foto/nova">Nova</a></li>
+                    </ul>
+                </li>
+                <li class="accordion-group color_4"> 
+                    <a class="accordion-toggle widgets collapsed " data-toggle="collapse" data-parent="#sidebar_menu" href="#collapse3"> 
+                        <!--<img src="/img/icons/menu/gallery.png" alt="" />-->
+                        <span>Videos</span>
+                    </a>
+                    <ul id="collapse3" class="accordion-body collapse">
+                        <li><a href="/admin/videos">Todos</a></li>
+                        <li><a href="/admin/video/novo">Novo</a></li>
+                    </ul>
+                </li>
+                <li class="accordion-group color_4"> 
+                    <a class="accordion-toggle widgets collapsed " data-toggle="collapse" data-parent="#sidebar_menu" href="#collapse4"> 
+                        <!--<img src="/img/icons/menu/gallery.png" alt="" />-->
+                        <span>Portfólio</span>
+                    </a>
+                    <ul id="collapse4" class="accordion-body collapse">
+                        <li><a href="/admin/portfolio">Todos</a></li>
+                        <li><a href="/admin/portfolio/novo">Novo</a></li>
+                    </ul>
+                </li>
+                <li class="accordion-group color_4"> 
+                    <a class="accordion-toggle widgets collapsed " data-toggle="collapse" data-parent="#sidebar_menu" href="#collapse5"> 
+                        <!--<img src="/img/icons/menu/gallery.png" alt="" />-->
+                        <span>Artistas</span>
+                    </a>
+                    <ul id="collapse5" class="accordion-body collapse">
+                        <li><a href="/admin/artistas">Todos</a></li>
+                        <li><a href="/admin/artista/novo">Novo</a></li>
+                    </ul>
+                </li>
+                <li class="accordion-group color_4"> 
+                    <a class="accordion-toggle widgets collapsed " data-toggle="collapse" data-parent="#sidebar_menu" href="#collapse6"> 
+                        <!--<img src="/img/icons/menu/gallery.png" alt="" />-->
+                        <span>Serviços e Equipamentos</span>
+                    </a>
+                    <ul id="collapse6" class="accordion-body collapse">
+                        <li><a href="/admin/servicos">Todos</a></li>
+                        <li><a href="/admin/servico/novo">Novo</a></li>
+                    </ul>
+                </li>
+                <li class="accordion-group color_4"> 
+                    <a class="accordion-toggle widgets collapsed " data-toggle="collapse" data-parent="#sidebar_menu" href="#collapse7"> 
+                        <!--<img src="/img/icons/menu/gallery.png" alt="" />-->
+                        <span>Rádio</span>
+                    </a>
+                    <ul id="collapse7" class="accordion-body collapse">
+                        <li><a href="/admin/radio">Alterar</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="main">
+    <div class="container">
+        <div class="header row-fluid">
+            <div class="logo"> <a href="/"><span>Site</span><span class="icon"></span></a> </div>
+            <div class="top_right">
+                <ul class="nav nav_menu">
+                    <li class="dropdown"> 
+                        <a class="dropdown-toggle administrator" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                            <div class="title"><span class="name">Anfrísio Rocha</span><span class="subtitle">Administrador</span></div>
+                            <span class="icon"><img src="/img/nova_logo_73x73.jpg" alt="Imagem Perfil" /></span>
+                        </a>
+
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                            <li><a href="/admin/perfil"><i class=" icon-user"></i>Meu Perfil</a></li>
+                            <!--<li><a href="forms_general.html"><i class=" icon-cog"></i>Configurações</a></li>-->
+                            <li><a href="/logout"><i class=" icon-off"></i>Log Out</a></li>
+                            <!--<li><a href="search.html"><i class=" icon-flag"></i>Ajuda</a></li>-->
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- End top-right --> 
+
+        </div>
+
+        <div id="main_container">
+            <%- body %>
+        </div>
+        <!-- End #container --> 
+
+    </div>
+
+    <div id="footer">
+        <p> &copy; Estúdio Som do Mar - Admin <span class="anoAtual"></span> </p>
+        <!--<span class="company_log"><a href="mailto:danilobjr@gmail.com">design by: Danilo Jr.</a></span>-->
+    </div>
+</div>
+
+<!-- End .background_changer -->
+
+<script src="/js/anoAtual.js" type="text/javascript"></script> 
+
+<!-- Custom made scripts for this template --> 
+<script src="/js/scripts.js" type="text/javascript"></script> 
+
+</body>
+</html>

@@ -1,0 +1,874 @@
+<contexto>
+  <paginas>
+    <pagina>
+      <id>1</id>
+      <descricao>Home</descricao>
+      <titulo>Bem-vindo!</titulo>
+      <subtitulo>Responsabilidade, compromisso e qualidade são o nosso lema</subtitulo>
+      <texto>
+        <paragrafos>
+          <paragrafo>
+            <descricao></descricao>
+          </paragrafo>
+        </paragrafos>
+      </texto>
+    </pagina>
+    <pagina>
+      <id>2</id>
+      <descricao>Estúdio</descricao>
+      <titulo>Estúdio</titulo>
+      <subtitulo></subtitulo>
+      <texto>
+        <paragrafos>
+          <paragrafo>
+            <descricao>O estúdio som do mar foi criado com o objetivo de realizar trabalhos sonoros para o cliente de uma forma individualizada, obedecendo as peculiaridades artísticas de cada trabalho. Especializamo-nos em gravações de ótima qualidade, o que implica em know-how e equipamentos necessários, pelo absoluto prazer em trabalhar com música. Marque seu horário e faça-nos uma visita. Sentimo-nos orgulhosos de participar de seus sonhos.</descricao>
+          </paragrafo>
+          <paragrafo>
+            <descricao>Situado na Praia de Iracema, o estúdio se localiza em uma das áreas mais culturais e turísticas de Fortaleza, além do corredor de hotéis e pousadas.</descricao>
+          </paragrafo>
+        </paragrafos>
+      </texto>
+    </pagina>
+    <pagina>
+      <id>3</id>
+      <descricao>Portfólio - Jingles</descricao>
+      <titulo></titulo>
+      <subtitulo></subtitulo>
+      <texto>
+        <paragrafos>
+          <paragrafo>
+            <descricao>O Som do Mar produz para os mais variados ramos da publicidade, entre eles, rádio, TV, campanhas políticas e publicitárias.</descricao>
+          </paragrafo>
+          <paragrafo>
+            <descricao>Ouça ao lado alguns trabalhos que produzimos.</descricao>
+          </paragrafo>
+        </paragrafos>
+      </texto>
+    </pagina>
+    <pagina>
+      <id>4</id>
+      <descricao>Portfólio - Pessoal</descricao>
+      <titulo></titulo>
+      <subtitulo></subtitulo>
+      <texto>
+        <paragrafos>
+          <paragrafo>
+            <descricao>Anfrisio, Diretor e proprietário do Estudio Som do Mar é músico com uma grande história em eventos musicais no Ceará e com trabalhos feitos pelo Brasil à fora.</descricao>
+          </paragrafo>
+          <paragrafo>
+            <descricao>Profissional com larga experiência em música, Formado em Licenciatura em Música, sua vida inteira foi dedicar-se à música, fazendo disso sua principal função na vida. É Multi-instrumentista e dono de grande habilidade com os instrumentos.</descricao>
+          </paragrafo>
+          <paragrafo>
+            <descricao>Anfrisio é arranjador, compositor, produtor e diretor de seu próprio estúdio em Fortaleza, a Cidade Bela de todos nós.</descricao>
+          </paragrafo>
+        </paragrafos>
+      </texto>
+    </pagina>
+  </paginas>
+  <usuario>
+    <id>1</id>
+    <email>anfrisiorocha@hotmail.com</email>
+    <nome>Anfrísio</nome>
+    <sobrenome>Rocha</sobrenome>
+    <senha>b8697f01954168599e814940515ba00972699bd62dcdd5756214c10dba9c84d1</senha>
+    <arquivoImagemPerfil>nova_logo_198x198.jpg</arquivoImagemPerfil>
+    <telefones>
+      <telefone>
+        <numero>(85) 8690-9040</numero>
+        <tipo>oi</tipo>
+      </telefone>
+      <telefone>
+        <numero>(85) 9985-5193</numero>
+        <tipo>tim</tipo>
+      </telefone>
+      <telefone>
+        <numero>(85) 3067-6885</numero>
+        <tipo>fixo</tipo>
+      </telefone>
+    </telefones>
+    <redesSociais>
+      <redeSocial>
+        <link>http://www.facebook.com/estudiosomdomar</link>
+        <tipo>facebook</tipo>
+      </redeSocial>
+      <redeSocial>
+        <link>https://www.youtube.com/AnfrisioRocha</link>
+        <tipo>youtube</tipo>
+      </redeSocial>
+    </redesSociais>
+  </usuario>
+  <artistas>
+    <artista>
+      <id>1</id>
+      <nome>Priscila Ribeiro</nome>
+      <site>www.priscilaribeiro.com.br</site>
+      <email>priscilabribeiro@hotmail.com</email>
+      <telefones>
+        <telefone>
+          <numero>(85) 8883.6480</numero>
+          <tipo>oi</tipo>
+        </telefone>
+      </telefones>
+      <redesSociais>
+        <redeSocial>
+          <link>www.facebook.com/profile.php?id=1012718819&amp;ref=ts</link>
+          <tipo>facebook</tipo>
+        </redeSocial>
+      </redesSociais>
+      <imagens>
+        <perfil>artistas_priscila_ribeiro.jpg</perfil>
+        <background>
+          <cor>#454545</cor>
+          <imagem>x.jpg</imagem>
+        </background>
+      </imagens>
+      <musicas>
+        <musica>
+          <nome>Saudade</nome>
+          <arquivoMusica>cd_priscila_ribeiro_saudade.mp3</arquivoMusica>
+          <arquivoCapaAlbum>o_amor_e_suas_cancoes_250x250.jpg</arquivoCapaAlbum>
+        </musica>
+        <musica>
+          <nome>Ensaio Sobre a Dor</nome>
+          <arquivoMusica>Priscila-Ensaio_sobre_a_dor.mp3</arquivoMusica>
+          <arquivoCapaAlbum>ensaio_sobre_a_dor_250x250.jpg</arquivoCapaAlbum>
+        </musica>
+      </musicas>
+    </artista>
+    <artista>
+      <id>2</id>
+      <nome>Flavinho Souza</nome>
+      <email>flavioiconio@hotmail.com</email>
+      <telefones>
+        <telefone>
+          <numero>(85) 8883-6480</numero>
+          <tipo>oi</tipo>
+        </telefone>
+      </telefones>
+      <redesSociais>
+        <redeSocial>
+          <link>www.facebook.com/profile.php?id=1012718819&amp;ref=ts</link>
+          <tipo>facebook</tipo>
+        </redeSocial>
+      </redesSociais>
+      <imagens>
+        <perfil>artistas_flavinho.jpg</perfil>
+        <background>
+          <cor>#454545</cor>
+          <imagem>imagem.jpg</imagem>
+        </background>
+      </imagens>
+      <musicas>
+        <musica>
+          <nome>Caminho Estreito</nome>
+          <arquivoMusica>cd_flavinho_sousa-caminho_estreito.mp3</arquivoMusica>
+          <arquivoCapaAlbum>capa_flavinho_250x250.jpg</arquivoCapaAlbum>
+        </musica>
+      </musicas>
+      <site></site>
+    </artista>
+    <artista>
+      <nome>Rodrigo Cardozo</nome>
+      <site></site>
+      <email>digoblues@hotmail.com</email>
+      <telefones>
+        <telefone>
+          <numero>(85) 9101-9105</numero>
+          <tipo>tim</tipo>
+        </telefone>
+      </telefones>
+      <redesSociais>
+        <redeSocial>
+          <link>http://www.facebook.com/profile.php?id=1817432635</link>
+          <tipo>facebook</tipo>
+        </redeSocial>
+        <redeSocial>
+          <link>http://www.myspace.com/rodrigocardozo</link>
+          <tipo>myspace</tipo>
+        </redeSocial>
+      </redesSociais>
+      <imagens>
+        <background>
+          <cor>#454545</cor>
+        </background>
+        <perfil>artistas_rodrigo_cardozo2.jpg</perfil>
+      </imagens>
+      <id>3</id>
+      <musicas>
+        <musica>
+          <nome>Novos Horizontes</nome>
+          <arquivoMusica>rodrigo_cardozo_novoshori.mp3</arquivoMusica>
+          <arquivoCapaAlbum>cd_rodrigo_cardozo_novoshori.jpg</arquivoCapaAlbum>
+        </musica>
+        <musica>
+          <nome>Pegada Eletrônica</nome>
+          <arquivoMusica>cd_rodrigo_cardozo-pegada_eletronica.mp3</arquivoMusica>
+          <arquivoCapaAlbum>cd_rodrigo_cardozo_pegada_eletronica_250x250.jpg</arquivoCapaAlbum>
+        </musica>
+        <musica>
+          <nome>No Meu Lugar</nome>
+          <arquivoMusica>rodrigo_cardozo_no_meu_lugar.mp3</arquivoMusica>
+          <arquivoCapaAlbum>cd_rodrigo_cardozo_no_meu_lugar.jpg</arquivoCapaAlbum>
+        </musica>
+      </musicas>
+    </artista>
+    <artista>
+      <nome>Ana Cléria</nome>
+      <site></site>
+      <email>anacleriasax@yahoo.com.br</email>
+      <telefones>
+        <telefone>
+          <numero>(85) 8818-1099</numero>
+          <tipo>oi</tipo>
+        </telefone>
+      </telefones>
+      <redesSociais>
+        <redeSocial>
+          <link>https://www.facebook.com/anacleria.rocha</link>
+          <tipo>facebook</tipo>
+        </redeSocial>
+      </redesSociais>
+      <imagens>
+        <background>
+          <cor>#454545</cor>
+        </background>
+        <perfil>AnaPorumsegundo-159.jpg</perfil>
+      </imagens>
+      <id>4</id>
+      <musicas>
+        <musica>
+          <nome>CD Por um segundo</nome>
+          <arquivoMusica>previanovocd.mp3</arquivoMusica>
+          <arquivoCapaAlbum>AnaPorumsegundo-p.jpg</arquivoCapaAlbum>
+        </musica>
+      </musicas>
+    </artista>
+  </artistas>
+  <fotos>
+    <foto>
+      <id>1</id>
+      <titulo>Aristides Cavalcante</titulo>
+      <secao>musico</secao>
+      <imagemPequena>musico-aristides_cavalcante_xs.jpg</imagemPequena>
+      <imagemAmpliada>musico-aristides_cavalcante_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>2</id>
+      <titulo>Ronald Melo</titulo>
+      <secao>musico</secao>
+      <imagemPequena>musico-ronald_melo_xs.jpg</imagemPequena>
+      <imagemAmpliada>musico-ronald_melo_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>3</id>
+      <titulo>Júnior Finnis</titulo>
+      <secao>musico</secao>
+      <imagemPequena>musico-jr_finnis_xs.jpg</imagemPequena>
+      <imagemAmpliada>musico-jr_finnis_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>4</id>
+      <titulo>Rodrigo Cardozo</titulo>
+      <secao>musico</secao>
+      <imagemPequena>musico-rodrigo_cardozo_xs.jpg</imagemPequena>
+      <imagemAmpliada>musico-rodrigo_cardozo_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>6</id>
+      <titulo>Técnica</titulo>
+      <secao>estudio</secao>
+      <imagemPequena>tecnica-1_xs.jpg</imagemPequena>
+      <imagemAmpliada>tecnica-1_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>7</id>
+      <titulo>Técnica</titulo>
+      <secao>estudio</secao>
+      <imagemPequena>tecnica-2_xs.jpg</imagemPequena>
+      <imagemAmpliada>tecnica-2_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>8</id>
+      <titulo>Aquário</titulo>
+      <secao>estudio</secao>
+      <imagemPequena>aquario-2_xs.jpg</imagemPequena>
+      <imagemAmpliada>aquario-2_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>9</id>
+      <titulo>Bateria</titulo>
+      <secao>estudio</secao>
+      <imagemPequena>bateria-3_xs.jpg</imagemPequena>
+      <imagemAmpliada>bateria-3_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>10</id>
+      <titulo>Bateria</titulo>
+      <secao>estudio</secao>
+      <imagemPequena>bateria-4_xs.jpg</imagemPequena>
+      <imagemAmpliada>bateria-4_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>11</id>
+      <titulo>Instrumentos</titulo>
+      <secao>estudio</secao>
+      <imagemPequena>instrumentos3-p.JPG</imagemPequena>
+      <imagemAmpliada>instrumentos3-g.JPG</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>12</id>
+      <titulo>Mesa</titulo>
+      <secao>estudio</secao>
+      <imagemPequena>mesa-2_xs.jpg</imagemPequena>
+      <imagemAmpliada>mesa-2_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>13</id>
+      <titulo>Mesa</titulo>
+      <secao>estudio</secao>
+      <imagemPequena>mesa-3_xs.jpg</imagemPequena>
+      <imagemAmpliada>mesa-3_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>14</id>
+      <titulo>Mesa</titulo>
+      <secao>estudio</secao>
+      <imagemPequena>mesa-4_xs.jpg</imagemPequena>
+      <imagemAmpliada>mesa-4_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>15</id>
+      <titulo>Microfone</titulo>
+      <secao>estudio</secao>
+      <imagemPequena>microfone_xs.jpg</imagemPequena>
+      <imagemAmpliada>microfone_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>16</id>
+      <titulo>Periféricos</titulo>
+      <secao>estudio</secao>
+      <imagemPequena>perifericos-2_xs.jpg</imagemPequena>
+      <imagemAmpliada>perifericos-2_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>17</id>
+      <titulo>Periféricos</titulo>
+      <secao>estudio</secao>
+      <imagemPequena>perifericos-3_xs.jpg</imagemPequena>
+      <imagemAmpliada>perifericos-3_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>18</id>
+      <titulo>Periféricos</titulo>
+      <secao>estudio</secao>
+      <imagemPequena>perifericos-4_xs.jpg</imagemPequena>
+      <imagemAmpliada>perifericos-4_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>19</id>
+      <titulo>Recepção</titulo>
+      <secao>estudio</secao>
+      <imagemPequena>recepcao_xs.jpg</imagemPequena>
+      <imagemAmpliada>recepcao_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>20</id>
+      <titulo>Teclado</titulo>
+      <secao>estudio</secao>
+      <imagemPequena>teclado_xs.jpg</imagemPequena>
+      <imagemAmpliada>teclado_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <titulo>Adriano Azevêdo</titulo>
+      <secao>musico</secao>
+      <imagemPequena>ADRIANO_p.JPG</imagemPequena>
+      <imagemAmpliada>ADRIANO_g.JPG</imagemAmpliada>
+      <id>23</id>
+    </foto>
+    <foto>
+      <titulo>Hoto Júnior</titulo>
+      <secao>musico</secao>
+      <imagemPequena>HOTO_p.jpg</imagemPequena>
+      <imagemAmpliada>HOTO_g.jpg</imagemAmpliada>
+      <id>24</id>
+    </foto>
+    <foto>
+      <titulo>Thiago Rocha</titulo>
+      <secao>musico</secao>
+      <imagemPequena>THIAGO ROCHA_p.jpg</imagemPequena>
+      <imagemAmpliada>THIAGO ROCHA_g.jpg</imagemAmpliada>
+      <id>25</id>
+    </foto>
+    <foto>
+      <titulo>Rafael Maia</titulo>
+      <secao>musico</secao>
+      <imagemPequena>RAFAEL MAIA_p.jpg</imagemPequena>
+      <imagemAmpliada>RAFAEL MAIA_g.jpg</imagemAmpliada>
+      <id>26</id>
+    </foto>
+    <foto>
+      <titulo>Ricardo Abreu</titulo>
+      <secao>musico</secao>
+      <imagemPequena>Ricardinho_p.jpg</imagemPequena>
+      <imagemAmpliada>Ricardinho_g.jpg</imagemAmpliada>
+      <id>27</id>
+    </foto>
+    <foto>
+      <id>28</id>
+      <titulo>Técnica</titulo>
+      <secao>home</secao>
+      <imagemPequena>tecnica-1_s.jpg</imagemPequena>
+      <imagemAmpliada>tecnica-1_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>29</id>
+      <titulo>Aquário</titulo>
+      <secao>home</secao>
+      <imagemPequena>aquario-1_s.jpg</imagemPequena>
+      <imagemAmpliada>aquario-1_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>30</id>
+      <titulo>Bateria</titulo>
+      <secao>home</secao>
+      <imagemPequena>bateria-4_s.jpg</imagemPequena>
+      <imagemAmpliada>bateria-4_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <id>31</id>
+      <titulo>Mesa Controladora</titulo>
+      <secao>home</secao>
+      <imagemPequena>mesa-4_s.jpg</imagemPequena>
+      <imagemAmpliada>mesa-4_b.jpg</imagemAmpliada>
+    </foto>
+    <foto>
+      <titulo>Marcus Vinicius</titulo>
+      <secao>musico</secao>
+      <imagemPequena>MARC_VINICIUS-p.JPG</imagemPequena>
+      <imagemAmpliada>MARC_VINICIUS-g.JPG</imagemAmpliada>
+      <id>33</id>
+    </foto>
+    <foto>
+      <titulo>George Luis</titulo>
+      <secao>musico</secao>
+      <imagemPequena>GEORGE-p.JPG</imagemPequena>
+      <imagemAmpliada>GEORGE-g.JPG</imagemAmpliada>
+      <id>34</id>
+    </foto>
+    <foto>
+      <titulo>Robson Gomes</titulo>
+      <secao>musico</secao>
+      <imagemPequena>ROBSON-p.JPG</imagemPequena>
+      <imagemAmpliada>ROBSON-g.JPG</imagemAmpliada>
+      <id>35</id>
+    </foto>
+    <foto>
+      <titulo>Perifericos</titulo>
+      <secao>home</secao>
+      <imagemPequena>Conversores-p.JPG</imagemPequena>
+      <imagemAmpliada>Conversores-g.JPG</imagemAmpliada>
+      <id>36</id>
+    </foto>
+    <foto>
+      <titulo>Nelson Bomilcar</titulo>
+      <secao>participacao</secao>
+      <imagemPequena>participacoes-anfrisio_e_nelson_xs.jpg</imagemPequena>
+      <imagemAmpliada>participacoes-anfrisio_e_nelson_b.jpg</imagemAmpliada>
+      <id>37</id>
+    </foto>
+    <foto>
+      <titulo>Marcos Lessa</titulo>
+      <secao>participacao</secao>
+      <imagemPequena>MARCOS LESSA_p.jpg</imagemPequena>
+      <imagemAmpliada>MARCOS LESSA_g.jpg</imagemAmpliada>
+      <id>38</id>
+    </foto>
+    <foto>
+      <titulo>Jefferson Portela</titulo>
+      <secao>musico</secao>
+      <imagemPequena>Jefferson-p.JPG</imagemPequena>
+      <imagemAmpliada>Jefferson-g.JPG</imagemAmpliada>
+      <id>39</id>
+    </foto>
+    <foto>
+      <titulo>Neo dos Santos</titulo>
+      <secao>musico</secao>
+      <imagemPequena>Neo-p.JPG</imagemPequena>
+      <imagemAmpliada>Neo-g.JPG</imagemAmpliada>
+      <id>40</id>
+    </foto>
+  </fotos>
+  <portfolio>
+    <musica>
+      <id>1</id>
+      <nome>Restaura-me</nome>
+      <artista>Janaina Castro</artista>
+      <arquivoMusica>cd_janaina_castro-restaura-me.mp3</arquivoMusica>
+      <arquivoCapaAlbum>janaina_castro.jpg</arquivoCapaAlbum>
+      <secao>lancamento</secao>
+    </musica>
+    <musica>
+      <id>2</id>
+      <nome>À Capella</nome>
+      <artista>Daniel Costa</artista>
+      <arquivoMusica>cd_daniel_costa.mp3</arquivoMusica>
+      <arquivoCapaAlbum>x.jpg</arquivoCapaAlbum>
+      <secao>outro</secao>
+    </musica>
+    <musica>
+      <id>3</id>
+      <nome>Campanha Política Artur Bruno - 1313</nome>
+      <artista>Artur Bruno</artista>
+      <arquivoMusica>jingle-artur_bruno_1313.mp3</arquivoMusica>
+      <arquivoCapaAlbum></arquivoCapaAlbum>
+      <secao>jingle</secao>
+    </musica>
+    <musica>
+      <id>4</id>
+      <nome>Hora de Dormir</nome>
+      <artista>Anfrísio Rocha</artista>
+      <arquivoMusica>cd_hora_de_dormir-mix.mp3</arquivoMusica>
+      <arquivoCapaAlbum>anfrisio_rocha_hora_de_dormir.jpg</arquivoCapaAlbum>
+      <secao>pessoal</secao>
+    </musica>
+    <musica>
+      <nome>Caminho Estreito</nome>
+      <artista>Flavinho Souza</artista>
+      <arquivoMusica>cd_flavinho_sousa-caminho_estreito.mp3</arquivoMusica>
+      <arquivoCapaAlbum>flavinho_sousa.jpg</arquivoCapaAlbum>
+      <secao>lancamento</secao>
+      <id>5</id>
+    </musica>
+    <musica>
+      <nome>Por Um Segundo</nome>
+      <artista>Ana Cléria</artista>
+      <arquivoMusica>cd_ana_cleria-por1seg.mp3</arquivoMusica>
+      <arquivoCapaAlbum>ana_cleria.jpg</arquivoCapaAlbum>
+      <secao>lancamento</secao>
+      <id>6</id>
+    </musica>
+    <musica>
+      <nome>Saudade</nome>
+      <artista>Priscila Ribeiro</artista>
+      <arquivoMusica>cd_priscila_ribeiro_saudade.mp3</arquivoMusica>
+      <arquivoCapaAlbum>priscila_ribeiro.jpg</arquivoCapaAlbum>
+      <secao>lancamento</secao>
+      <id>7</id>
+    </musica>
+    <musica>
+      <nome>Pegada Eletrônica</nome>
+      <artista>Rodrigo Cardozo</artista>
+      <arquivoMusica>cd_rodrigo_cardozo-pegada_eletronica.mp3</arquivoMusica>
+      <arquivoCapaAlbum>rodrigo_cardozo.jpg</arquivoCapaAlbum>
+      <secao>lancamento</secao>
+      <id>8</id>
+    </musica>
+    <musica>
+      <nome>Demo</nome>
+      <artista>Dudu Portela</artista>
+      <arquivoMusica>cd_dudu_portela.mp3</arquivoMusica>
+      <arquivoCapaAlbum></arquivoCapaAlbum>
+      <secao>outro</secao>
+      <id>9</id>
+    </musica>
+    <musica>
+      <nome>Demo</nome>
+      <artista>Eder Rocky</artista>
+      <arquivoMusica>cd_eder_rocky.mp3</arquivoMusica>
+      <arquivoCapaAlbum></arquivoCapaAlbum>
+      <secao>outro</secao>
+      <id>10</id>
+    </musica>
+    <musica>
+      <nome>Demo</nome>
+      <artista>Homero Neto</artista>
+      <arquivoMusica>cd_homero_neto.mp3</arquivoMusica>
+      <arquivoCapaAlbum></arquivoCapaAlbum>
+      <secao>outro</secao>
+      <id>11</id>
+    </musica>
+    <musica>
+      <nome>Demo</nome>
+      <artista>Juniho Pafume</artista>
+      <arquivoMusica>cd_juninho_pafume.mp3</arquivoMusica>
+      <arquivoCapaAlbum></arquivoCapaAlbum>
+      <secao>outro</secao>
+      <id>12</id>
+    </musica>
+    <musica>
+      <nome>Fortal Jangadeiro</nome>
+      <artista>Jangadeiro</artista>
+      <arquivoMusica>jingle-Fortal_-_Jangadeiro_com_vozes.mp3</arquivoMusica>
+      <arquivoCapaAlbum></arquivoCapaAlbum>
+      <secao>jingle</secao>
+      <id>13</id>
+    </musica>
+    <musica>
+      <nome>Renaut</nome>
+      <artista>Jangada</artista>
+      <arquivoMusica>jingle-jangada.mp3</arquivoMusica>
+      <arquivoCapaAlbum></arquivoCapaAlbum>
+      <secao>jingle</secao>
+      <id>14</id>
+    </musica>
+    <musica>
+      <nome>Apiguana e Você</nome>
+      <artista>Apiguana</artista>
+      <arquivoMusica>jingle-apiguana.mp3</arquivoMusica>
+      <arquivoCapaAlbum></arquivoCapaAlbum>
+      <secao>jingle</secao>
+      <id>15</id>
+    </musica>
+    <musica>
+      <nome>CD Untitled</nome>
+      <artista>Sarquis Filho</artista>
+      <arquivoMusica>cd_sarquis_fermanian.mp3</arquivoMusica>
+      <arquivoCapaAlbum>x.jpg</arquivoCapaAlbum>
+      <secao>outro</secao>
+      <id>16</id>
+    </musica>
+    <musica>
+      <nome>CD Paradoxo</nome>
+      <artista>Márcio Cardoso</artista>
+      <arquivoMusica>cd_marcio_cardoso.mp3</arquivoMusica>
+      <arquivoCapaAlbum>marcio_cardoso.jpg</arquivoCapaAlbum>
+      <secao>lancamento</secao>
+      <id>17</id>
+    </musica>
+    <musica>
+      <nome>Recomeço</nome>
+      <artista>Anfrisio Rocha</artista>
+      <arquivoMusica>cd_recomeco-recomeco.mp3</arquivoMusica>
+      <arquivoCapaAlbum>anfrisio_rocha_recomeco.jpg</arquivoCapaAlbum>
+      <secao>pessoal</secao>
+      <id>18</id>
+    </musica>
+    <musica>
+      <nome>A Porta</nome>
+      <artista> Banda Êxodo 7</artista>
+      <arquivoMusica>exodo7_aporta.mp3</arquivoMusica>
+      <arquivoCapaAlbum>exodo7_capa-p.jpg</arquivoCapaAlbum>
+      <secao>outro</secao>
+      <id>19</id>
+    </musica>
+  </portfolio>
+  <radio>
+    <id>1</id>
+    <descricao>Programa Inaugural  |  Em breve novidades</descricao>
+    <arquivoMusica>prgm_inaugural.mp3</arquivoMusica>
+  </radio>
+  <videos>
+    <video>
+      <id>1</id>
+      <titulo>Flavinho Souza | Pseudo Amor</titulo>
+      <url>//www.youtube.com/embed/sX1EmPOwBsU</url>
+    </video>
+    <video>
+      <id>2</id>
+      <titulo>Banda Frequencia 33 || Making Of Gravação</titulo>
+      <url>//www.youtube.com/embed/J3ODdCOAY5E</url>
+    </video>
+    <video>
+      <id>3</id>
+      <titulo>Espera | Anfrísio Rocha</titulo>
+      <url>//www.youtube.com/embed/6gUCAy6rWKU</url>
+    </video>
+    <video>
+      <id>4</id>
+      <titulo>Sarquis Fermanian - Fast Track</titulo>
+      <url>//www.youtube.com/embed/2vPa1TT-3xY</url>
+    </video>
+    <video>
+      <id>5</id>
+      <titulo>Estúdio Som do Mar | Institucional</titulo>
+      <url>//www.youtube.com/embed/RWOLnEuKGWA</url>
+    </video>
+    <video>
+      <id>6</id>
+      <titulo>Discurso Imoral | Flavinho Souza</titulo>
+      <url>//www.youtube.com/embed/XP7tnp8GvQA</url>
+    </video>
+    <video>
+      <titulo>Não me rejeites | Ministério O Novo de Deus</titulo>
+      <url>//www.youtube.com/embed/MgU98jkzJxg</url>
+      <id>7</id>
+    </video>
+  </videos>
+  <servicos>
+    <servico>
+      <id>1</id>
+      <descricao>Gravação de CD</descricao>
+      <secao>servico</secao>
+    </servico>
+    <servico>
+      <id>2</id>
+      <descricao>Gravação de Demos</descricao>
+      <secao>servico</secao>
+    </servico>
+    <servico>
+      <id>3</id>
+      <descricao>Criação e Edição de Trilhas para Teatro e Dança</descricao>
+      <secao>servico</secao>
+    </servico>
+    <servico>
+      <id>4</id>
+      <descricao>Criação de Arranjos para Cantores Solo e Bandas</descricao>
+      <secao>servico</secao>
+    </servico>
+    <servico>
+      <id>5</id>
+      <descricao>Direção Musical</descricao>
+      <secao>servico</secao>
+    </servico>
+    <servico>
+      <id>6</id>
+      <descricao>Mixagem e Masterização</descricao>
+      <secao>servico</secao>
+    </servico>
+    <servico>
+      <id>7</id>
+      <descricao>Locuções para Carro de Som</descricao>
+      <secao>servico</secao>
+    </servico>
+    <servico>
+      <id>8</id>
+      <descricao>Jingles, Spots e Vinhetas para Rádio e TV</descricao>
+      <secao>servico</secao>
+    </servico>
+    <servico>
+      <id>9</id>
+      <descricao>Gravação para Campanha Política</descricao>
+      <secao>servico</secao>
+    </servico>
+    <servico>
+      <id>10</id>
+      <descricao>Produção e Gravação através da Internet</descricao>
+      <secao>servico</secao>
+    </servico>
+    <servico>
+      <id>11</id>
+      <descricao>Dublagem</descricao>
+      <secao>servico</secao>
+    </servico>
+    <servico>
+      <id>12</id>
+      <descricao>PC Intel Core 2 duo 3.0 - 4gb ram - HDs 80 + 160 + 1tera (x2)</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>13</id>
+      <descricao>Cubase 5.0</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>14</id>
+      <descricao>Interface M-audio Profire LightBrigde (suporta até 32 canais)</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>15</id>
+      <descricao>Pré-amplificador e compressor Focusrite</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>16</id>
+      <descricao>Compressor Valvulado Behringer</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>17</id>
+      <descricao>Conversores ADA 8000</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>18</id>
+      <descricao>Conversores Octopré Focusrite</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>19</id>
+      <descricao>Receiver Sansui</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>20</id>
+      <descricao>Monitores Yamaha NS-10M, Yamaha HS-50, Behringer MS-40, Marantz</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>21</id>
+      <descricao>Baterias: Sonor Force 2007 (20, 14,10,12,14), Grestch Catalina Ash (8, 10, 12,14, 22)</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>22</id>
+      <descricao>Sintetizador Yamaha CS2X</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>23</id>
+      <descricao>Controlador Behringer</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>24</id>
+      <descricao>Guitarra Yamaha Strato EG303</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>25</id>
+      <descricao>Guitarra Fender Stratocaster Eric Clapton Signature</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>26</id>
+      <descricao>Guitarra PRS SE Santana</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>27</id>
+      <descricao>Baixo Eagle Jazz Bass com captação Fender</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>28</id>
+      <descricao>Baixo Condor CJB-500 5 cordas</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>29</id>
+      <descricao>Baixo Fretless Condor 4 cordas</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>30</id>
+      <descricao>Violão Taylor Aço</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <id>31</id>
+      <descricao>Microfones: Neumann TLM 103, CAD M-179, Marshall MXL 770, Superlux condenser, Shure SM-57,. AKG C-418, Shure Beta 98 D/S, Audix.</descricao>
+      <secao>equipamento</secao>
+    </servico>
+    <servico>
+      <descricao>Baixo Viola Epiphone</descricao>
+      <secao>equipamento</secao>
+      <id>32</id>
+    </servico>
+    <servico>
+      <descricao>Produção de Vídeo-clips</descricao>
+      <secao>servico</secao>
+      <id>33</id>
+    </servico>
+    <servico>
+      <descricao>Violão Nylon Jasmine by Takamine</descricao>
+      <secao>equipamento</secao>
+      <id>34</id>
+    </servico>
+    <servico>
+      <descricao>Registro das músicas com ISRC (código de gravação padrão internacional) ISO 3901.</descricao>
+      <secao>servico</secao>
+      <id>35</id>
+    </servico>
+  </servicos>
+</contexto>

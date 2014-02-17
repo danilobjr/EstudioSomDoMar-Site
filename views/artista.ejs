@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8" />
+        <title><%= viewModel.nome %></title>
+
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet'/> 
+        <link href='http://fonts.googleapis.com/css?family=Oswald:400,700' rel='stylesheet'/>
+        <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:300' rel='stylesheet'/>
+
+        <link rel="stylesheet" href="/css/reset.css" />
+        <link rel="stylesheet" href="/css/style_artista.css" />
+
+        <script src="/js/jquery-1.7.1.js" ></script>
+        <script src="/js/jquery.mousewheel.js" ></script>
+        <script src="/js/jquery.mCustomScrollbar.min.js" ></script>
+        <script src="/js/html5audio.js" ></script>
+        <script src="/js/anoAtual.js" ></script>
+        <script src="/js/scripts_artista.js" ></script>
+        
+    </head>
+    <body style="background: url(../img/foto/background/<%= viewModel.imagens.background.imagem %>) no-repeat <%= viewModel.imagens.background.cor %>">
+        <div id="container">
+            <section>
+                <header>
+                    <h1><%= viewModel.nome %></h1>
+                </header>
+                <article>
+                    <div id="player"></div>
+                    <div class="albums">
+                        <img src="/img/cd/<%= viewModel.musicas[0].arquivoCapaAlbum %>" alt="" />
+                    </div>
+                    <div class="playlist scrollable">
+                        <ul class="listHoverFX">
+
+                            <% for (var i = 0; i < viewModel.musicas.length; i++) { %>
+                                <li class="song"
+                                    data-h5a-song-url="/musicas/<%= viewModel.musicas[i].arquivoMusica %>"
+                                    data-h5a-cover-url="/img/cd/<%= viewModel.musicas[i].arquivoCapaAlbum %>">
+                                    <div class="controls">
+                                        <img src="/img/play.png" alt="" class="play" />
+                                        <img src="/img/pause.png" alt="" class="pause" />
+                                    </div>
+                                    <p><%= viewModel.musicas[i].nome %></p>
+                                </li>
+                            <% } %>
+                            
+                        </ul>
+                    </div>
+                </article>
+                <footer>
+                    <section id="contatos">
+                        <h3>Contatos</h3>
+
+                        <div>
+                            <span>Email:</span>
+                            <span><a href="mailto:<%= viewModel.email %>" target="_blank"><%= viewModel.email %></a></span>
+                        </div>
+
+                        <% for (var i = 0; i < viewModel.telefones.length; i++) { %>
+                            <div>
+                                <span><%= viewModel.telefones[i].tipo %>:</span>
+                                <span><%= viewModel.telefones[i].numero %></span>
+                            </div>
+                        <% } %>
+
+                        <% if (typeof viewModel.site != 'undefined' && viewModel.site != '') { %>
+
+                        <div>
+                            <span>Site:</span>
+                            <span><a href="<%= viewModel.site %>" target="_blank" class="site"><%= viewModel.site %></a></span>
+                        </div>
+
+                        <% } %>
+                    </section>
+
+                    <div class="vertical-separator"></div>
+
+                    <section id="social" class="last">
+                        <h3>Redes Sociais</h3>
+                        <% if (typeof viewModel.redesSociais != 'undefined') { %>
+
+                            <% for (var i = 0; i < viewModel.redesSociais.length; i++) { %>
+                                <a href="<%= viewModel.redesSociais[i].link %>" target="_blank"><img src="/img/icons/social/<%= viewModel.redesSociais[i].tipo %>-32.png" alt="<%= viewModel.redesSociais[i].tipo %>" /></a>
+                            <% } %>
+
+                        <% } %>
+                    </section>
+                </footer>
+            </section>
+
+            <br clear="all" />
+
+            <footer>
+                <div>
+                    <span class="color">Estúdio Som do Mar</span>
+                    <span> &copy; <span class="anoAtual"></span> | Fortaleza - CE. Brasil</span>
+                </div>
+                <div title="danilobjr@gmail.com">
+                    <a href="mailto:danilobjr@gmail.com">
+                        <span>design by </span>
+                        <span class="color">Danilo Jr.</span>
+                    </a>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>

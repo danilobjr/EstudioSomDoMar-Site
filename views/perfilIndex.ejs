@@ -1,0 +1,88 @@
+<div class="row-fluid">
+    <div class="span3">
+        <div class="title">
+            <div class="row-fluid legend">
+                <h1><%= viewModel.nome %>&nbsp;<%= viewModel.sobrenome %></h1>
+            </div>
+        </div>
+        <!-- End .title -->
+        <div class="content">
+            <div class="row-fluid well well-small"> <img class="row-fluid" src="/img/<%= viewModel.arquivoImagemPerfil %>" alt="Imagem de Perfil" /> </div>
+            <ul class="nav nav-tabs dark nav-stacked">
+                <li><a href="/admin/usuario/alterar/<%= viewModel.id %>"><i class="icon-file"></i>Alterar Dados Pessoais</a></li>
+                <!--
+                <li><a href="#"><i class="icon-lock"></i>Senha</a></li>
+                <li><a href="#"><i class="icon-user"></i>Imagem de Perfil</a></li>
+                -->
+            </ul>
+        </div>
+        <!-- End .content --> 
+    </div>
+    <!-- End .span3 -->
+        
+    <div class="span9">
+        <div class="content" style="margin-top: 67px">
+            <h3><span>Dados Pessoais</span></h3>
+
+            <dl class="dl-horizontal">
+                <dt>Nome</dt>
+                <dd><%= viewModel.nome %></dd>
+                <dt>Sobrenome</dt>
+                <dd><%= viewModel.sobrenome %></dd>
+                <dt>Email</dt>
+                <dd><a href="emailto:<%= viewModel.email %>"><%= viewModel.email %></a></dd>
+            </dl>
+
+            <hr>
+
+            <h3><span>Telefones</span></h3>
+            
+            <dl class="dl-horizontal">
+                <% for (var i = 0; i < viewModel.telefones.length; i++) { %>
+                    <dt><%= viewModel.telefones[i].tipo %></dt>
+                    <dd><%= viewModel.telefones[i].numero %></dd>
+                <% } %>
+            </dl>
+
+            <hr>
+
+            <% if (typeof viewModel.redesSociais != 'undefined' && viewModel.redesSociais.length) { %>
+
+                <h3><span>Redes Sociais</span></h3>
+
+                <dl class="dl-horizontal">
+                    <% for (var i = 0; i < viewModel.redesSociais.length; i++) { %>
+                        <dt><%= viewModel.redesSociais[i].tipo %></dt>
+                        <dd><a href="<%= viewModel.redesSociais[i].link %>" target="_blank">Acessar Perfil</a></dd>
+                    <% } %>
+                </dl>
+            <% } %>
+        </div>
+        <!-- End .content --> 
+    </div>
+    <!-- End .span9 --> 
+</div>
+<!-- End .row-fluid --> 
+
+<script>
+    $(function () {
+        var caseUpFirstLetter = function (elements) {
+            elements.each(function (i, obj) {
+                var _this = $(obj);
+                
+                if (_this.text() === 'youtube') {
+                    _this.text('YouTube');
+                    return;
+                }
+
+                var palavraComPrimeiraLetraMaiuscula = _this.text().toLowerCase().replace(/\b[a-z]/g, function (letra) {
+                    return letra.toUpperCase();
+                });
+
+                _this.text(palavraComPrimeiraLetraMaiuscula);
+            });
+        };
+
+        caseUpFirstLetter($('dl > dt'));
+    });
+</script>

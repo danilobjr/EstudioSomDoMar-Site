@@ -1,0 +1,262 @@
+<div class="row-fluid">
+    <div class="box">
+        <div class="title row-fluid ">
+            <div class="pull-left">
+                <h4>Alterar Dados Pessoais de Usuário</h4>
+            </div>
+        </div>
+        <!-- End .title -->
+
+        <div class="content">
+            <form id="formUsuarioDadosPessoais" method="post" action="/admin/usuario/alterar/dados-pessoais" class="form-horizontal cmxform" autocomplete="off">
+                <input type="hidden" name="idArtista" value="<%= viewModel.id %>" />
+                <div class="form-row control-group row-fluid">
+                    <label class="control-label span3" for="nome">Nome *</label>
+                    <div class="controls span8">
+                        <input id="nome" name="nome" type="text" class="span12" value="<%= viewModel.nome %>"/>
+                        <label class="error errorRequired" style="display: none;">Por favor, informe o nome</label>
+                    </div>
+                </div>
+                <div class="form-row control-group row-fluid">
+                    <label class="control-label span3" for="sobrenome">Sobrenome *</label>
+                    <div class="controls span8">
+                        <input id="sobrenome" name="sobrenome" type="text" class="span12" value="<%= viewModel.sobrenome %>"/>
+                        <label class="error errorRequired" style="display: none;">Por favor, informe o sobrenome</label>
+                    </div>
+                </div>
+                <div class="form-row control-group row-fluid">
+                    <label class="control-label span3" for="email">Email *</label>
+                    <div class="controls span8">
+                        <input id="email" name="email" type="text" class="span12" value="<%= viewModel.email %>" />
+                        <label class="error errorRequired" style="display: none;">Por favor, informe o email</label>
+                        <label class="error errorMinlength" style="display: none;">O email precisa ter pelo menos 6 caracteres</label>
+                        <label class="error errorEmail" style="display: none;">O email informado não é válido</label>
+                    </div>
+                </div>
+
+                <!-- Campo Telefones -->
+
+                <% for (var i = 0; i < viewModel.telefones.length; i++) { %>
+
+                <% if (i === 0) { %>
+
+                    <div class="form-row control-group row-fluid">
+                        <label class="control-label span3" for="telefone">Telefone *</label>
+                        <div class="controls span3">
+                            <div class="input-prepend row-fluid">
+                                <select id="tipoTelefone" name="tipoTelefone" class="row-fluid">
+                                    <option value="fixo" <%= (viewModel.telefones[i].tipo === 'fixo') ? 'selected' : '' %>>Fixo</option>
+                                    <option value="oi" <%= (viewModel.telefones[i].tipo === 'oi') ? 'selected' : '' %>>Oi</option>
+                                    <option value="tim" <%= (viewModel.telefones[i].tipo === 'tim') ? 'selected' : '' %>>TIM</option>
+                                    <option value="claro" <%= (viewModel.telefones[i].tipo === 'claro') ? 'selected' : '' %>>Claro</option>
+                                    <option value="vivo" <%= (viewModel.telefones[i].tipo === 'vivo') ? 'selected' : '' %>>Vivo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="controls span4">
+                            <div class="input-prepend row-fluid"> <span class="add-on"><i class="icon-phone"></i></span>
+                                <input type="tel" id="telefone" name="telefone" class="row-fluid" alt="phone" placeholder="Número" value="<%= viewModel.telefones[i].numero %>" />
+                                <label class="error errorRequired" style="display: none;">Por favor, informe o telefone</label>
+                                <label class="error errorMinlength" style="display: none;">O telefone precisa ter pelo menos 14 caracteres</label>
+                            </div>
+                        </div>
+                        <div class="btn-controls btn-group inline span1">
+                            <a class="btn adicionarTelefone" href="#">
+                                <span class="icon-plus"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                <% } else { %>
+
+                    <div class="form-row control-group row-fluid">
+                        <label class="control-label span3" for="telefone"></label>
+                        <div class="controls span3">
+                            <div class="input-prepend row-fluid">
+                                <select id="tipoTelefone" name="tipoTelefone" class="row-fluid">
+                                    <option value="fixo" <%= (viewModel.telefones[i].tipo === 'fixo') ? 'selected' : '' %>>Fixo</option>
+                                    <option value="oi" <%= (viewModel.telefones[i].tipo === 'oi') ? 'selected' : '' %>>Oi</option>
+                                    <option value="tim" <%= (viewModel.telefones[i].tipo === 'tim') ? 'selected' : '' %>>TIM</option>
+                                    <option value="claro" <%= (viewModel.telefones[i].tipo === 'claro') ? 'selected' : '' %>>Claro</option>
+                                    <option value="vivo" <%= (viewModel.telefones[i].tipo === 'vivo') ? 'selected' : '' %>>Vivo</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="controls span4">
+                            <div class="input-prepend row-fluid"> <span class="add-on"><i class="icon-phone"></i></span>
+                                <input type="tel" id="telefone" name="telefone" class="row-fluid" alt="phone" placeholder="Número" value="<%= viewModel.telefones[i].numero %>" />
+                                <label class="error errorRequired" style="display: none;">Por favor, informe o telefone</label>
+                                <label class="error errorMinlength" style="display: none;">O telefone precisa ter pelo menos 14 caracteres</label>
+                            </div>
+                        </div>
+                        <div class="btn-controls btn-group inline span1">
+                            <a class="btn adicionarTelefone" href="#">
+                                <span class="icon-plus"></span>
+                            </a>
+                            <a class="btn removerTelefone" href="#">
+                                <span class="icon-minus"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                <% } %> <!-- END if -->
+
+                <% } %> <!-- END for -->
+
+                <!-- END Campo Telefones -->
+
+                <!-- Campo RedeSocial -->
+
+                <% if (typeof viewModel.redesSociais == 'undefined') { %>
+
+                    <div class="form-row control-group row-fluid">
+                        <label class="control-label span3" for="redeSocial">Rede Social</label>
+                        <div class="controls span3">
+                            <div class="input-prepend row-fluid">
+                                <select id="tipoRedeSocial" name="tipoRedeSocial" class="row-fluid">
+                                    <option value="facebook">Facebook</option>
+                                    <option value="twitter">Twitter</option>
+                                    <option value="youtube">YouTube</option>
+                                    <option value="googleplus">Google+</option>
+                                    <option value="myspace">MySpace</option>
+                                    <option value="soundcloud">SoundCloud</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="controls span4">
+                            <div class="input-prepend row-fluid"> <span class="add-on"><i class="icon-facebook"></i></span>
+                                <input type="text" id="redeSocial" name="redeSocial" class="row-fluid" placeholder="Link de acesso ao perfil" />
+                                <label class="error errorMinlength" style="display: none;">O link precisa ter pelo menos 10 caracteres</label>
+                                <label class="error errorUrl" style="display: none;">O link informado não é válido</label>
+                            </div>
+                        </div>
+                        <div class="btn-controls btn-group inline span1">
+                            <a class="btn adicionarSocial" href="#">
+                                <span class="icon-plus"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                <% } else { %>
+
+                    <% for (var i = 0; i < viewModel.redesSociais.length; i++) { %>
+
+                    <% if (i === 0) { %>
+
+                    <div class="form-row control-group row-fluid">
+                        <label class="control-label span3" for="redeSocial">Rede Social</label>
+                        <div class="controls span3">
+                            <div class="input-prepend row-fluid">
+                                <select id="tipoRedeSocial" name="tipoRedeSocial" class="row-fluid">
+                                    <option value="facebook" <%= (viewModel.redesSociais[i].tipo === 'facebook') ? 'selected' : '' %>>Facebook</option>
+                                    <option value="twitter" <%= (viewModel.redesSociais[i].tipo === 'twitter') ? 'selected' : '' %>>Twitter</option>
+                                    <option value="youtube" <%= (viewModel.redesSociais[i].tipo === 'youtube') ? 'selected' : '' %>>YouTube</option>
+                                    <option value="googleplus" <%= (viewModel.redesSociais[i].tipo === 'googleplus') ? 'selected' : '' %>>Google+</option>
+                                    <option value="myspace" <%= (viewModel.redesSociais[i].tipo === 'myspace') ? 'selected' : '' %>>MySpace</option>
+                                    <option value="soundcloud" <%= (viewModel.redesSociais[i].tipo === 'soundcloud') ? 'selected' : '' %>>SoundCloud</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="controls span4">
+                            <div class="input-prepend row-fluid"> <span class="add-on"><i class="icon-facebook"></i></span>
+                                <input type="text" id="redeSocial" name="redeSocial" class="row-fluid" placeholder="Link de acesso ao perfil" value="<%= viewModel.redesSociais[i].link %>" />
+                                <label class="error errorMinlength" style="display: none;">O link precisa ter pelo menos 10 caracteres</label>
+                                <label class="error errorUrl" style="display: none;">O link informado não é válido</label>
+                            </div>
+                        </div>
+                        <div class="btn-controls btn-group inline span1">
+                            <a class="btn adicionarSocial" href="#">
+                                <span class="icon-plus"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <% } else { %>
+
+                    <div class="form-row control-group row-fluid">
+                        <label class="control-label span3" for="redeSocial"></label>
+                        <div class="controls span3">
+                            <div class="input-prepend row-fluid">
+                                <select id="tipoRedeSocial" name="tipoRedeSocial" class="row-fluid">
+                                    <option value="facebook" <%= (viewModel.redesSociais[i].tipo === 'facebook') ? 'selected' : '' %>>Facebook</option>
+                                    <option value="twitter" <%= (viewModel.redesSociais[i].tipo === 'twitter') ? 'selected' : '' %>>Twitter</option>
+                                    <option value="youtube" <%= (viewModel.redesSociais[i].tipo === 'youtube') ? 'selected' : '' %>>YouTube</option>
+                                    <option value="googleplus" <%= (viewModel.redesSociais[i].tipo === 'googleplus') ? 'selected' : '' %>>Google+</option>
+                                    <option value="myspace" <%= (viewModel.redesSociais[i].tipo === 'myspace') ? 'selected' : '' %>>MySpace</option>
+                                    <option value="soundcloud" <%= (viewModel.redesSociais[i].tipo === 'soundcloud') ? 'selected' : '' %>>SoundCloud</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="controls span4">
+                            <div class="input-prepend row-fluid"> <span class="add-on"><i class="icon-facebook"></i></span>
+                                <input type="text" id="redeSocial" name="redeSocial" class="row-fluid" placeholder="Link de acesso ao perfil" value="<%= viewModel.redesSociais[i].link %>" />
+                                <label class="error errorMinlength" style="display: none;">O link precisa ter pelo menos 10 caracteres</label>
+                                <label class="error errorUrl" style="display: none;">O link informado não é válido</label>
+                            </div>
+                        </div>
+                        <div class="btn-controls btn-group inline span1">
+                            <a class="btn adicionarSocial" href="#">
+                                <span class="icon-plus"></span>
+                            </a>
+                            <a class="btn removerSocial" href="#">
+                                <span class="icon-minus"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <% } %> <!-- END if -->
+
+                    <% } %> <!-- END for -->
+
+                <% } %> <!-- END if -->
+
+                <!-- END Campo Telefones -->
+
+                <div class="form-actions row-fluid">
+                    <div class="span12">
+                        <a href="/admin" class="btn btn-large btn-secondary pull-right">Cancelar</a>
+                        <button type="submit" class="btn btn-large btn-success pull-right">Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- End .content --> 
+        <a href="#instrucoes" class="btn new_item" data-toggle="modal"><i class="icon-info-sign"></i></a>
+    </div>
+    <!-- End  .box --> 
+    <!--</div>-->
+    <!-- End .span6 -->
+</div>
+
+<!-- Modal Instruções -->
+
+<div id="instrucoes" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Instruções</h3>
+    </div>
+    <div class="modal-body">
+        <h4>Dados Pessoais</h4>
+
+        <ul>
+            <li>Os campos que contém um <b>*</b> são de preenchimento obrigatório, os demais são opcionais</li>
+            <li>Nos campos de <b>Telefone</b> e <b>Rede Social</b> você pode escolher o tipo de operadora e qual o tipo de rede social, respectivamente</li>
+            <li>Os botões 
+                <a class="btn">
+                    <span class="icon-plus"></span>
+                </a> adicionam um novo campo para <b>Telefone</b> ou <b>Rede Social</b>
+            </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">Fechar</button>
+    </div>
+</div>
+
+<!-- Modal Mensagem -->
+
+<% include partial/mensagem %>
+
+<script src="/js/jquery.validate.min.js"></script>
+<script src="/js/jquery.meio.mask.min.js"></script>
+<script src="/js/app/formUsuarioDadosPessoais.js"></script>

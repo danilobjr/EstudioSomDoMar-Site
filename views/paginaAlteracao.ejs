@@ -1,0 +1,157 @@
+<div class="row-fluid">
+    <div class="box">
+        <div class="title">
+            <div class="row-fluid">
+                <h4>Alterar Texto</h4>
+            </div>
+        </div>
+        <!-- End .title -->
+
+        <div class="content">
+            <form id="formAlterarPagina" method="post" action="/admin/pagina/alterar" class="form-horizontal cmxform" autocomplete="off">
+                <input type="hidden" name="idPagina" value="<%= viewModel.id %>" />
+
+                <% var haTituloComConteudo = viewModel.titulo;
+                    if (haTituloComConteudo) { %>
+
+                    <div class="form-row control-group row-fluid">
+                        <label class="control-label span2" for="titulo">Título *</label>
+                        <div class="controls span8">
+                            <input id="titulo" name="titulo" type="text" class="span12" value="<%= viewModel.titulo %>"/>
+                            <label class="error errorRequired" style="display: none;">Por favor, informe o título da página</label>
+                            <label class="error errorMaxlength" style="display: none;">O título pode conter o máximo de 40 caracteres</label>
+                        </div>
+                    </div>
+
+                <% } %>
+
+                <% var haSubtituloComConteudo = viewModel.subtitulo;
+                    if (haSubtituloComConteudo) { %>
+
+                    <div class="form-row control-group row-fluid">
+                        <label class="control-label span2" for="subtitulo">Subtítulo *</label>
+                        <div class="controls span8">
+                            <input id="subtitulo" name="subtitulo" type="text" class="span12" value="<%= viewModel.subtitulo %>"/>
+                            <label class="error errorRequired" style="display: none;">Por favor, informe o subtítulo da página</label>
+                            <label class="error errorMaxlength" style="display: none;">O subtítulo pode conter o máximo de 120 caracteres</label>
+                        </div>
+                    </div>
+
+                <% } %>
+
+                <!-- Campo Parágrafos -->
+
+                <% var haParagrafoNestaPagina = viewModel.texto.paragrafos[0].descricao;
+                    if (haParagrafoNestaPagina) { %>
+
+                <% for (var i = 0; i < viewModel.texto.paragrafos.length; i++) { %>
+
+                <% if (i === 0) { %>
+
+                    <div class="form-row control-group row-fluid">
+                        <label class="control-label span2" for="paragrafo">Parágrafos *</label>
+                        <div class="controls span8">
+                            <textarea id="paragrafo" name="paragrafo" rows="3" class="row-fluid autogrow" placeholder="Escreva aqui o conteúdo do parágrafo..."><%= viewModel.texto.paragrafos[i].descricao %></textarea>
+                            <label class="error errorRequired" style="display: none;">Por favor, escreva o conteúdo do parágrafo</label>
+                            <label class="error errorMinlength" style="display: none;">O parágrafo precisa ter pelo menos 2 caracteres</label>
+                            <label class="error errorMaxlength" style="display: none;">O parágrafo pode conter o máximo de 500 caracteres</label>
+                        </div>
+                        <div class="btn-controls btn-group inline addRemoveBtnsWithTextarea span1">
+                            <a class="btn adicionarParagrafo" href="#">
+                                <span class="icon-plus"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                <% } else { %>
+
+                    <div class="form-row control-group row-fluid">
+                        <label class="control-label span2" for="paragrafo"></label>
+                        <div class="controls span8">
+                            <textarea id="paragrafo" name="paragrafo" rows="3" class="row-fluid autogrow" placeholder="Escreva aqui o conteúdo do parágrafo"><%= viewModel.texto.paragrafos[i].descricao %></textarea>
+                            <label class="error errorRequired" style="display: none;">Por favor, escreva o conteúdo do parágrafo</label>
+                            <label class="error errorMinlength" style="display: none;">O parágrafo precisa ter pelo menos 2 caracteres</label>
+                            <label class="error errorMaxlength" style="display: none;">O parágrafo pode conter o máximo de 500 caracteres</label>
+                        </div>
+                        <div class="btn-controls btn-group inline addRemoveBtnsWithTextarea span1">
+                            <a class="btn adicionarParagrafo" href="#">
+                                <span class="icon-plus"></span>
+                            </a>
+                            <a class="btn removerParagrafo" href="#">
+                                <span class="icon-minus"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                <% } %> <!-- END if -->
+
+                <% } %> <!-- END for -->
+
+                <% } %> <!-- END if -->
+
+                <!-- END Campo Parágrafos -->
+
+                <div class="form-actions row-fluid">
+                    <div class="span12">
+                        <a href="/admin/paginas" class="btn btn-large btn-secondary pull-right">Cancelar</a>
+                        <button type="submit" class="btn btn-large btn-success pull-right">Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- End .content --> 
+        <a href="#instrucoes" class="btn new_item" data-toggle="modal"><i class="icon-info-sign"></i></a>
+    </div>
+    <!-- End  .box --> 
+</div>
+
+<!-- Modal Instruções -->
+
+<div id="instrucoes" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Instruções</h3>
+    </div>
+    <div class="modal-body">
+        <h4>Alteração de Textos das Páginas</h4>
+
+        <ul>
+            <li>
+                Dependendo da página que desejar alterar os textos, serão mostradas opções com diferentes combinações. São elas:
+                <ul>
+                    <li><em>Título</em> e <em>Subtítulo</em></li>
+                    <li><em>Título</em> e <em>Parágrafos</em></li>
+                    <li>Ou somente <em>Parágrafos</em></li>
+                </ul>
+            </li>
+            <li>Todos os campos são de preenchimento obrigatório</li>
+            <li>Os botões 
+                <a class="btn">
+                    <span class="icon-plus"></span>
+                </a> adicionam um novo campo para um novo <em>Parágrafo</em>
+            </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">Fechar</button>
+    </div>
+</div>
+
+<!-- Modal Mensagem -->
+
+<% include partial/mensagem %>
+
+<script src="/js/jquery.validate.min.js"></script>
+<script src="/js/jquery.meio.mask.min.js"></script>
+<script src="/js/plugins/textarea-autogrow.js"></script>
+<script src="/js/app/formAlterarPagina.js"></script>
+
+<script>
+    $(function () {
+        //$('.mostrar-instrucao').on('click', function (e) {
+        //    var _this = $(e.currentTarget);
+        //    var btnAbrirModal = $('#abrir-modal');
+        //    btnAbrirModal.attr('href', _this.data().modal);
+        //});
+    });
+</script>

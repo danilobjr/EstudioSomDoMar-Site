@@ -1,0 +1,111 @@
+<div class="row-fluid">
+    <div class="span12">
+        <div class="box paint color_4">
+            <div class="title">
+                <h4> <span>Novo Vídeo</span> </h4>
+            </div>
+
+            <div class="content">
+                <form id="formNovoVideo" method="post" action="/admin/video/novo" class="form-horizontal cmxform" autocomplete="off">
+                    <div class="form-row control-group row-fluid">
+                        <label class="control-label span3" for="titulo">
+                            Título
+                            <!--<span class="help-block">Type something to validate</span>--> 
+                        </label>
+                        <div class="controls span9">
+                            <input id="titulo" name="titulo" type="text" class="span12" placeholder="Título idêntico ao original do YouTube"/>
+                        </div>
+                    </div>
+                    <div class="form-row control-group row-fluid">
+                        <label class="control-label span3" for="url">Código de Compartilhamento</label>
+                        <div class="controls span9">
+                            <div class="input-prepend row-fluid"> <span class="add-on"><i class="icon-lock"></i></span>
+                                <input class="row-fluid" type="text" id="url" name="url" placeholder="Cole aqui o código gerado no YouTube de acordo com as instruções">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions row-fluid">
+                        <div class="span12">
+                            <a href="/admin/videos" class="btn btn-large btn-secondary pull-right">Cancelar</a>
+                            <button type="submit" class="btn btn-large btn-success pull-right">Salvar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <a href="#instrucoesModal" class="btn new_item" data-toggle="modal"><i class="icon-info-sign"></i></a>
+        </div>
+        <!-- End .box --> 
+    </div>
+</div>
+
+<div id="instrucoesModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel">Instruções</h3>
+    </div>
+    <div class="modal-body">
+        <h4>Para incluir um novo vídeo, siga as instruções abaixo</h4>
+
+        <p>1. Preencha o campo <b>Título</b> com título desejado, de preferência, semelhante ao título do vídeo no YouTube</p>
+        <p>2. Acesse o vídeo do YouTube que você deseja incluir</p>
+        <p>3. Logo abaixo do título do vídeo, clique em <b>Compartilhar</b></p>
+        <p>3. Em seguida, clique em <b>Incorporar</b></p>
+        <p>4. Copie o código gerado e cole no campo <b>Código de Compartilhamento</b></p>
+        <p>5. Clique em <b>Salvar</b></p>
+        <p>6. Pronto! Seu deve ser incluído com sucesso</p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" data-dismiss="modal">Fechar</button>
+    </div>
+</div>
+
+<script src="/js/jquery.validate.min.js"></script>
+
+<script>
+
+    $.validator.addMethod(
+        "regex",
+        function (value, element, regexp) {
+            var check = false;
+            var re = new RegExp(regexp);
+            return this.optional(element) || re.test(value);
+        },
+        "O código de compartilhamento gerado não é válido"
+    );
+    //$("form").validate({ debug: true });
+    //$("#article_text").rules("add", { regex: "<iframe" })
+
+    $(function () {
+        $("#formNovoVideo").validate({
+            rules: {
+                titulo: {
+                    required: true,
+                    minlength: 3
+                },
+                url: {
+                    required: true,
+                    minlength: 30,
+                    regex: '<iframe'
+                }
+            },
+            messages: {
+                titulo: {
+                    required: "Por favor, informe o título",
+                    minlength: "O título precisa conter pelo menos 3 caracteres"
+                },
+                url: {
+                    required: "Por favor, informe o código de compartilhamento gerado no YouTube",
+                    minlength: "O título precisa conter pelo menos 30 caracteres"
+                }
+            }
+        });
+
+        $("#formNovoVideo").on('submit', function (e) {
+            var campoUrl = $('[name=url]');
+            var codigoDeCompartilhamento = campoUrl.val();
+            var iframe = $(codigoDeCompartilhamento);
+            campoUrl.val(iframe.attr('src'));
+        });
+    });
+</script>

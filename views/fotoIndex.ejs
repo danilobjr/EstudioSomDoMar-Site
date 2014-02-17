@@ -1,0 +1,264 @@
+<div class="row-fluid">
+    <div class="box">
+        <div class="title">
+            <div class="row-fluid">
+                <h4>Fotos</h4>
+            </div>
+        </div>
+        <!-- End .title -->
+
+        <div id="fotoIndexContent" class="content">
+            <ul id="tabListagemFotos" class="nav nav-tabs">
+                <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
+                <li><a href="#estudio" data-toggle="tab">Estúdio</a></li>
+                <li><a href="#musicos" data-toggle="tab">Músicos</a></li>
+                <li><a href="#participacoes" data-toggle="tab">Participações</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade active in" id="home">
+                    <%
+                                    
+                    var quantidadeDeFotosPorLinha = 4
+                        quantidadeDeUl = 0;
+
+                    if (viewModel.home.length <= quantidadeDeFotosPorLinha) {
+                        quantidadeDeUl = 1;
+                    } else {
+                        quantidadeDeUl = Math.ceil(viewModel.home.length / quantidadeDeFotosPorLinha);
+                    }
+
+                    for (var rowIndex = 0; rowIndex < quantidadeDeUl; rowIndex++) {
+
+                    %>
+
+                    <ul class="thumbnails row-fluid">
+
+                        <%
+                                    
+                        var quantidadeDeFoto = 0,
+                            ehUltimaLinha = (rowIndex + 1) === quantidadeDeUl;
+
+                        if (ehUltimaLinha) {
+                            quantidadeDeFoto = viewModel.home.length;
+                        } else {
+                            quantidadeDeFoto = quantidadeDeFotosPorLinha * (rowIndex + 1);
+                        }
+
+                        for (var fotoIndex = rowIndex * quantidadeDeFotosPorLinha; fotoIndex < quantidadeDeFoto; fotoIndex++) {
+
+                        %>
+
+                        <li class="span3">
+                            <div class="btn-group"> 
+                                <a href="/admin/foto/alterar/<%= viewModel.home[fotoIndex].id %>" rel="tooltip" data-placement="top" data-original-title="Editar"> 
+                                    <i class=" icon-edit"></i> 
+                                </a>
+                                <a class="excluir" data-toggle="modal" href="#confirmacao" rel="tooltip" data-url-exclusao="/admin/foto/excluir/<%= viewModel.home[fotoIndex].id %>" data-placement="top" data-original-title="Excluir"> 
+                                    <i class=" icon-trash"></i> 
+                                </a> 
+                            </div>
+                
+                            <a class="thumbnail"> 
+                                <img src="/img/foto/home/<%= viewModel.home[fotoIndex].imagemPequena %>" alt="<%= viewModel.home[fotoIndex].titulo %>" />
+                            </a> 
+                        </li>
+
+                        <% } %> <!-- End FOR -->
+
+                    </ul>
+
+                    <% } %> <!-- End FOR -->
+                </div>
+                <div class="tab-pane fade" id="estudio">
+                    <%
+                                    
+                    var quantidadeDeFotosPorLinha = 4
+                        quantidadeDeUl = 0;
+
+                    if (viewModel.estudio.length <= quantidadeDeFotosPorLinha) {
+                        quantidadeDeUl = 1;
+                    } else {
+                        quantidadeDeUl = Math.ceil(viewModel.estudio.length / quantidadeDeFotosPorLinha);
+                    }
+
+                    for (var rowIndex = 0; rowIndex < quantidadeDeUl; rowIndex++) {
+
+                    %>
+
+                    <ul class="thumbnails row-fluid">
+
+                        <%
+                                    
+                        var quantidadeDeFoto = 0,
+                            ehUltimaLinha = (rowIndex + 1) === quantidadeDeUl;
+
+                        if (ehUltimaLinha) {
+                            quantidadeDeFoto = viewModel.estudio.length;
+                        } else {
+                            quantidadeDeFoto = quantidadeDeFotosPorLinha * (rowIndex + 1);
+                        }
+
+                        for (var fotoIndex = rowIndex * quantidadeDeFotosPorLinha; fotoIndex < quantidadeDeFoto; fotoIndex++) {
+
+                        %>
+
+                        <li class="span3">
+                            <div class="btn-group">
+                                <a href="/admin/foto/alterar/<%= viewModel.estudio[fotoIndex].id %>" rel="tooltip" data-placement="top" data-original-title="Editar"> 
+                                    <i class=" icon-edit"></i> 
+                                </a>
+                                <a class="excluir" data-toggle="modal" href="#confirmacao" rel="tooltip" data-url-exclusao="/admin/foto/excluir/<%= viewModel.estudio[fotoIndex].id %>" data-placement="top" data-original-title="Excluir"> 
+                                    <i class=" icon-trash"></i> 
+                                </a> 
+                            </div>
+                
+                            <a class="thumbnail"> 
+                                <img src="/img/foto/estudio/<%= viewModel.estudio[fotoIndex].imagemPequena %>" alt="<%= viewModel.estudio[fotoIndex].titulo %>" />
+                            </a> 
+                        </li>
+
+                        <% } %> <!-- End FOR -->
+
+                    </ul>
+
+                    <% } %> <!-- End FOR -->
+                </div>
+                <div class="tab-pane fade" id="musicos">
+                    <%
+                                    
+                    var quantidadeDeFotosPorLinha = 4
+                        quantidadeDeUl = 0;
+
+                    if (viewModel.musicos.length <= quantidadeDeFotosPorLinha) {
+                        quantidadeDeUl = 1;
+                    } else {
+                        quantidadeDeUl = Math.ceil(viewModel.musicos.length / quantidadeDeFotosPorLinha);
+                    }
+
+                    for (var rowIndex = 0; rowIndex < quantidadeDeUl; rowIndex++) {
+
+                    %>
+
+                    <ul class="thumbnails row-fluid">
+
+                        <%
+                                    
+                        var quantidadeDeFoto = 0,
+                            ehUltimaLinha = (rowIndex + 1) === quantidadeDeUl;
+
+                        if (ehUltimaLinha) {
+                            quantidadeDeFoto = viewModel.musicos.length;
+                        } else {
+                            quantidadeDeFoto = quantidadeDeFotosPorLinha * (rowIndex + 1);
+                        }
+
+                        for (var fotoIndex = rowIndex * quantidadeDeFotosPorLinha; fotoIndex < quantidadeDeFoto; fotoIndex++) {
+
+                        %>
+
+                        <li class="span3">
+                            <div class="btn-group"> 
+                                <a href="/admin/foto/alterar/<%= viewModel.musicos[fotoIndex].id %>" rel="tooltip" data-placement="top" data-original-title="Editar"> 
+                                    <i class=" icon-edit"></i> 
+                                </a>
+                                <a class="excluir" data-toggle="modal" href="#confirmacao" rel="tooltip" data-url-exclusao="/admin/foto/excluir/<%= viewModel.musicos[fotoIndex].id %>" data-placement="top" data-original-title="Excluir"> 
+                                    <i class=" icon-trash"></i> 
+                                </a> 
+                            </div>
+                
+                            <a class="thumbnail"> 
+                                <img src="/img/foto/musico/<%= viewModel.musicos[fotoIndex].imagemPequena %>" alt="<%= viewModel.musicos[fotoIndex].titulo %>" />
+                            </a> 
+                        </li>
+
+                        <% } %> <!-- End FOR -->
+
+                    </ul>
+
+                    <% } %> <!-- End FOR -->
+                </div>
+                <div class="tab-pane fade" id="participacoes">
+                    <%
+                                    
+                    var quantidadeDeFotosPorLinha = 4
+                        quantidadeDeUl = 0;
+
+                    if (viewModel.participacoes.length <= quantidadeDeFotosPorLinha) {
+                        quantidadeDeUl = 1;
+                    } else {
+                        quantidadeDeUl = Math.ceil(viewModel.participacoes.length / quantidadeDeFotosPorLinha);
+                    }
+
+                    for (var rowIndex = 0; rowIndex < quantidadeDeUl; rowIndex++) {
+
+                    %>
+
+                    <ul class="thumbnails row-fluid">
+
+                        <%
+                                    
+                        var quantidadeDeFoto = 0,
+                            ehUltimaLinha = (rowIndex + 1) === quantidadeDeUl;
+
+                        if (ehUltimaLinha) {
+                            quantidadeDeFoto = viewModel.participacoes.length;
+                        } else {
+                            quantidadeDeFoto = quantidadeDeFotosPorLinha * (rowIndex + 1);
+                        }
+
+                        for (var fotoIndex = rowIndex * quantidadeDeFotosPorLinha; fotoIndex < quantidadeDeFoto; fotoIndex++) {
+
+                        %>
+
+                        <li class="span3">
+                            <div class="btn-group"> 
+                                <a href="/admin/foto/alterar/<%= viewModel.participacoes[fotoIndex].id %>" rel="tooltip" data-placement="top" data-original-title="Editar"> 
+                                    <i class=" icon-edit"></i> 
+                                </a>
+                                <a class="excluir" data-toggle="modal" href="#confirmacao" rel="tooltip" data-url-exclusao="/admin/foto/excluir/<%= viewModel.musicos[fotoIndex].id %>" data-placement="top" data-original-title="Excluir"> 
+                                    <i class=" icon-trash"></i> 
+                                </a> 
+                            </div>
+                
+                            <a class="thumbnail"> 
+                                <img src="/img/foto/participacao/<%= viewModel.participacoes[fotoIndex].imagemPequena %>" alt="<%= viewModel.musicos[fotoIndex].titulo %>" />
+                            </a> 
+                        </li>
+
+                        <% } %> <!-- End FOR -->
+
+                    </ul>
+
+                    <% } %> <!-- End FOR -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal hide fade" id="confirmacao" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
+        <h3 id="myModalLabel">Confirmação</h3>
+    </div>
+    <div class="modal-body">
+        <p>Deseja realmente excluir este item?</p>
+    </div>
+    <div class="modal-footer">
+        <a class="btn btn-primary confirmarExclusao" href="#">Sim</a>
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Não</button>
+    </div>
+</div>
+
+<script>
+    jQuery(function () {
+        $('a.excluir').on('click', function (e) {
+            e.preventDefault();
+            var _this = $(e.currentTarget);
+            var urlExclusao = _this.data().urlExclusao;
+            $('a.confirmarExclusao').attr('href', urlExclusao);
+        });
+    });
+</script>
+
+<% include partial/mensagem %>

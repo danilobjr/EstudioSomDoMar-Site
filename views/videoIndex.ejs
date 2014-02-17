@@ -1,0 +1,93 @@
+<div class="row-fluid">
+    <div class="box gradient">
+        <div class="title">
+            <h3> 
+                <i class=" icon-bar-chart"></i><span>Vídeos</span> 
+            </h3>
+        </div>
+        <!-- End .title -->
+
+        <div class="content">
+
+            <%
+                                    
+            var quantidadeDeVideosPorLinha = 3
+                quantidadeDeUL = 0;
+
+            if (viewModel.length <= quantidadeDeVideosPorLinha) {
+                quantidadeDeUL = 1;
+            } else {
+                quantidadeDeUL = Math.ceil(viewModel.length / quantidadeDeVideosPorLinha);
+            }
+
+            for (var ulIndex = 0; ulIndex < quantidadeDeUL; ulIndex++) {
+
+            %>
+
+            <ul class="thumbnails row-fluid">
+
+                <%
+                                    
+                var quantidadeDeLI = 0,
+                    ehUltimaLinha = (ulIndex + 1) === quantidadeDeUL;
+
+                if (ehUltimaLinha) {
+                    quantidadeDeLI = viewModel.length;
+                } else {
+                    quantidadeDeLI = quantidadeDeVideosPorLinha * (ulIndex + 1);
+                }
+
+                for (var liIndex = ulIndex * quantidadeDeVideosPorLinha; liIndex < quantidadeDeLI; liIndex++) {
+
+                %>
+
+                <li class="span4">
+                    <div class="btn-group"> 
+                        <a class="excluir" data-toggle="modal" href="#myModal" rel="tooltip" data-url-exclusao="/admin/video/excluir/<%= viewModel[liIndex].id %>" data-placement="top" data-original-title="Excluir"> 
+                            <i class=" icon-trash"></i> 
+                        </a> 
+                    </div>
+                
+                    <a class="thumbnail" href="#"> 
+                        <iframe width="293" height="165" src="<%= viewModel[liIndex].url %>" frameborder="0" allowfullscreen></iframe>
+                    </a> 
+                </li>
+
+                <% } %> <!-- End FOR -->
+
+            </ul>
+
+            <% } %> <!-- End FOR -->
+
+        </div>
+    </div>
+    <!-- End .box --> 
+</div>
+<!-- End .row-fluid --> 
+
+<div class="modal hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i></button>
+        <h3 id="myModalLabel">Confirmação</h3>
+    </div>
+    <div class="modal-body">
+        <p>Deseja realmente excluir este item?</p>
+    </div>
+    <div class="modal-footer">
+        <a class="btn btn-primary confirmarExclusao" href="#">Sim</a>
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Não</button>
+    </div>
+</div>
+
+<script>
+    jQuery(function () {
+        $('a.excluir').on('click', function (e) {
+            e.preventDefault();
+            var _this = $(e.currentTarget);
+            var urlExclusao = _this.data().urlExclusao;
+            $('a.confirmarExclusao').attr('href', urlExclusao);
+        });
+    });
+</script>
+
+<% include partial/mensagem %>
